@@ -1,7 +1,7 @@
-<h1>hey</h1>
 
 <%= react_component("MainApp", {
     signed_in: user_signed_in?,
+    sign_up: new_user_registration_path,
     sign_in_route: new_user_session_path,
     sign_out_route: destroy_user_session_path
 }) %>

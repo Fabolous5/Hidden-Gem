@@ -19,7 +19,7 @@ class MainApp extends React.Component {
       <React.Fragment>
         <Nav className="navbar navbar-expand-lg navbar-dark bg-primary">
         <NavItem>
-            <Link className="navbar-brand " href="#">Hidden Gem</Link>
+            <Link className="navbar-brand " href="/">Hidden Gem</Link>
         </NavItem>
 
 
@@ -45,7 +45,7 @@ class MainApp extends React.Component {
             }
 
         </Nav>
-        
+
     <Switch>
         <Route path="/all" component={GemAll}/>
         <Route exact path="/" component={Home}/>

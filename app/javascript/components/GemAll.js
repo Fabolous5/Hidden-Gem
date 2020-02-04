@@ -2,7 +2,7 @@ import React from "react"
 
 const GemAll = () => {
     return(
-        <h1>hello</h1>
+        <h1>this is the page that will show all the gems that are available</h1>
     )
 }
 

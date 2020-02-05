@@ -1,10 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <a class="navbar-brand" href="/">Home</a>
-    
+    <a class=" navbar-brand btn btn-outline-primary" href="/">Home</a>
 </nav>
-
 <h2>Sign up</h2>
-
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
@@ -19,13 +16,13 @@
   </div>
 
   <div class="field">
-    <%= f.label :postal_code %><br />
-    <%= f.text_field :postal_code, autofocus: true, autocomplete: "postal-code" %>
+    <%= f.label :age %><br />
+    <%= f.text_field :age, autofocus: true, autocomplete: "age" %>
   </div>
 
   <div class="field">
-    <%= f.label :age %><br />
-    <%= f.text_field :age, autofocus: true, autocomplete: "age" %>
+    <%= f.label :postal_code %><br />
+    <%= f.text_field :postal_code, autofocus: true, autocomplete: "postal-code" %>
   </div>
 
   <div class="field">

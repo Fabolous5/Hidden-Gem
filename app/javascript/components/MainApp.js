@@ -18,7 +18,12 @@ class MainApp extends React.Component {
       signed_in,
       sign_in_route,
       sign_up,
-      sign_out_route
+      sign_out_route,
+
+      admin_signed_in,
+      admin_sign_in_route,
+      admin_sign_up,
+      admin_sign_out_route
     } = this.props
 
     return (
@@ -64,17 +69,17 @@ class MainApp extends React.Component {
 
         </Nav>
 
-    <Switch>
-        <Route path="/all" component={GemAll}/>
-        <Route exact path="/" component={Home}/>
-        <Route path="/NewPost" component={NewPost}/>
-        <Route path="/EditPost" component={EditPost}/>
-        <Route path="/SingleGem" component={SingleGem}/>
-        <Route path="/UserProfile" component={UserProfile}/>
-        <Route path="/EditUserProfile" component={EditUserProfile}/>
+            <Link className=" navbar-brand btn btn-outline-primary" href={admin_sign_in_route}>Admin Sign In</Link>
 
-
-    </Switch>
+        <Switch>
+            <Route path="/all" component={GemAll}/>
+            <Route exact path="/" component={Home}/>
+            <Route path="/NewPost" component={NewPost}/>
+            <Route path="/EditPost" component={EditPost}/>
+            <Route path="/SingleGem" component={SingleGem}/>
+            <Route path="/UserProfile" component={UserProfile}/>
+            <Route path="/EditUserProfile" component={EditUserProfile}/>
+        </Switch>
 
       </React.Fragment>
       </Router>

@@ -1,7 +1,10 @@
-
 <%= react_component("MainApp", {
     signed_in: user_signed_in?,
     sign_up: new_user_registration_path,
     sign_in_route: new_user_session_path,
-    sign_out_route: destroy_user_session_path
+    sign_out_route: destroy_user_session_path,
+    admin_signed_in: admin_signed_in?,
+    admin_sign_up: new_admin_registration_path,
+    admin_sign_in_route: new_admin_session_path,
+    admin_sign_out_route: destroy_admin_session_path
 }) %>

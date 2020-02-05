@@ -22,11 +22,13 @@ class MainApp extends React.Component {
     } = this.props
 
     return (
+        <div>
+        
         <Router>
       <React.Fragment>
         <Nav className="navbar navbar-expand-lg navbar-dark bg-primary">
         <NavItem>
-            <Link className="navbar-brand " href="/">Hidden Gem</Link>
+            <Link id="hidden-gem-link" className="navbar-brand " href="/">Hidden Gem</Link>
         </NavItem>
 
 
@@ -63,7 +65,6 @@ class MainApp extends React.Component {
             }
 
         </Nav>
-
     <Switch>
         <Route path="/all" component={GemAll}/>
         <Route exact path="/" component={Home}/>
@@ -78,6 +79,7 @@ class MainApp extends React.Component {
 
       </React.Fragment>
       </Router>
+      </div>
     );
   }
 }

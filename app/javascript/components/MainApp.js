@@ -23,7 +23,7 @@ class MainApp extends React.Component {
 
     return (
         <div>
-        
+
         <Router>
       <React.Fragment>
         <Nav className="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -35,7 +35,19 @@ class MainApp extends React.Component {
             {signed_in &&
               <div>
               <NavItem>
-                <Link href={sign_out_route}>Sign Out</Link>
+                <Link className=" navbar-brand btn btn-outline-primary" href="/all">All Gems</Link>
+
+                <Link className=" navbar-brand btn btn-outline-primary" href="/NewPost">Create New Gem</Link>
+
+                <Link className=" navbar-brand btn btn-outline-primary" href="/EditPost">Edit Gem</Link>
+
+                <Link className=" navbar-brand btn btn-outline-primary" href="/SingleGem">Single Gem</Link>
+
+                <Link className=" navbar-brand btn btn-outline-primary" href="/ UserProfile">User Profile</Link>
+
+                <Link className=" navbar-brand btn btn-outline-primary" href="/ EditUserProfile">Edit User Profile</Link>
+
+                <Link className="navbar-brand btn btn-outline-primary" href={sign_out_route}>Sign Out</Link>
                 </NavItem>
 
               </div>
@@ -70,7 +82,7 @@ class MainApp extends React.Component {
         <Route exact path="/" component={Home}/>
         <Route path="/NewPost" component={NewPost}/>
         <Route path="/EditPost" component={EditPost}/>
-        <Route path="/SingleGem" component={SingleGem}/>
+        <Route path="/Gem/:id" component={SingleGem}/>
         <Route path="/UserProfile" component={UserProfile}/>
         <Route path="/EditUserProfile" component={EditUserProfile}/>
 

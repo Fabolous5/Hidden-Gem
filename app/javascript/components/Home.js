@@ -3,6 +3,7 @@ import React from 'react'
 const Home = () => {
 
 
+
     return(
         <div>
         <div  className="jumbotron">
@@ -14,6 +15,7 @@ const Home = () => {
           <a className="btn btn-primary btn-lg" href="/users/sign_up" role="button">Learn more</a>
           </p>
         </div>
+
         <div className="btn-toolbar d-flex justify-content-around" role="toolbar">
             <div style={{width: "300px"}} className="card border-primary mb-3" >
               <div className="card-header">Header</div>
@@ -38,7 +40,8 @@ const Home = () => {
         </div>
         </div>
 
-        </div>
+
+    </div>
 
     )
 }

@@ -14,28 +14,29 @@ import EditUserProfile from './EditUserProfile'
 
 class MainApp extends React.Component {
 
-    contructor(){
+    constructor(){
         super()
-    this.state = {
-        success: false,
-        form:{
-            eventName: '',
-            address: '',
-            category: '',
-            eventDescription: '',
-            startTime: '',
-            endTime:'',
-            date: ''
+        this.state = {
+            success: false,
+            form:{
+                eventName: '',
+                address: '',
+                category: '',
+                eventDescription: '',
+                startTime: '',
+                endTime:'',
+                date: ''
+            },
+            posts:[]
         }
+        this.getPost()
     }
-    this.getPost()
-}
 
 componentDidMount(){
     this.getPost()
 }
 
-handleSubmit = (this.state.form) => {
+handleSubmit = () => {
     // this.props.onSubmit(this.state.form)
     return fetch('/posts'), {
         body: JSON.stringify(this.state.form),
@@ -60,6 +61,18 @@ handleChange = (event) => {
     form[event.target.name]= event.target.value
     this.setState({form: form})
 };
+
+getPost = () => {
+    return fetch('/posts')
+    .then((response)=> {
+    if(response.ok){
+        return response.json()
+        }
+    })
+    .then ((posts)=> {
+        this.setState({posts: posts})
+    })
+}
 
 
   render () {
@@ -120,7 +133,7 @@ handleChange = (event) => {
 
        <Switch>
            <Route path="/all" component={GemAll}/>
-           <Route exact path="/" component={Home}/>
+           <Route exact path="/" render={(props) => <Home posts={this.state.posts}/> } />
            <Route path="/NewPost" component={NewPost}/>
            <Route path="/EditPost" component={EditPost}/>
            <Route path="/SingleGem" component={SingleGem}/>

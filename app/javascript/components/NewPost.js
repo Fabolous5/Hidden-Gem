@@ -4,7 +4,7 @@ import { Button, Form, FormGroup, Label, Input, FormText, Jumbotron } from 'reac
 class NewPost extends React.Component {
     constructor(props) {
         super(props)
-
+}
 
     render(){
         let {eventName, address, category, eventDescription, startTime, endTime, date} = this.props.form

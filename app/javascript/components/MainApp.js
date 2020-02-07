@@ -13,6 +13,7 @@ import EditUserProfile from './EditUserProfile'
 
 
 class MainApp extends React.Component {
+
     contructor(){
         super()
     this.state = {
@@ -67,6 +68,10 @@ handleChange = (event) => {
       sign_in_route,
       sign_up,
       sign_out_route,
+       first_name,
+         last_name,
+         postal_code,
+         email
     } = this.props
 
     return (
@@ -78,55 +83,58 @@ handleChange = (event) => {
             </NavItem>
 
 
-            {signed_in &&
-              <div>
-              <NavItem>
-                <Link href={sign_out_route}>Sign Out</Link>
-                </NavItem>
 
-              </div>
+               {signed_in &&
+                 <div>
+                 <NavItem>
 
-            }
-            {!signed_in &&
-              <div>
-              <NavItem>
-                <Link className=" navbar-brand btn btn-outline-primary" href="/all">All Gems</Link>
+                 <Link className=" navbar-brand btn btn-outline-primary" href="/all">All Gems</Link>
 
-                <Link className=" navbar-brand btn btn-outline-primary" href="/NewPost">Create New Gem</Link>
+                 <Link className=" navbar-brand btn btn-outline-primary" href="/NewPost">Create New Gem</Link>
 
-                <Link className=" navbar-brand btn btn-outline-primary" href="/EditPost">Edit Gem</Link>
+                 <Link className=" navbar-brand btn btn-outline-primary" href="/EditPost">Edit Gem</Link>
 
-                <Link className=" navbar-brand btn btn-outline-primary" href="/SingleGem">Single Gem</Link>
+                 <Link className=" navbar-brand btn btn-outline-primary" href="/UserProfile">User Profile</Link>
 
-                <Link className=" navbar-brand btn btn-outline-primary" href="/ UserProfile">User Profile</Link>
+                   <Link className=" navbar-brand btn btn-outline-primary" href={sign_out_route}>Sign Out</Link>
+                   </NavItem>
 
-                <Link className=" navbar-brand btn btn-outline-primary" href="/ EditUserProfile">Edit User Profile</Link>
+                 </div>
 
-                <Link className=" navbar-brand btn btn-outline-primary" href={sign_in_route}>Sign In</Link>
+               }
+               {!signed_in &&
+                 <div>
+                 <NavItem>
+                   <Link className=" navbar-brand btn btn-outline-primary" href="/all">All Gems</Link>
+
+                   <Link className=" navbar-brand btn btn-outline-primary" href={sign_in_route}>Sign In</Link>
+
+                   <Link className="navbar-brand btn btn-outline-primary"  href={sign_up}>Sign Up</Link>
+               </NavItem>
+                 </div>
+               }
+
+           </Nav>
 
 
-                <Link className="navbar-brand btn btn-outline-primary"  href={sign_up}>Sign Up</Link>
-            </NavItem>
-              </div>
-            }
 
-            </Nav>
+       <Switch>
+           <Route path="/all" component={GemAll}/>
+           <Route exact path="/" component={Home}/>
+           <Route path="/NewPost" component={NewPost}/>
+           <Route path="/EditPost" component={EditPost}/>
+           <Route path="/SingleGem" component={SingleGem}/>
+           <Route exact path="/UserProfile" render={(props) => <UserProfile user={this.props} /> } />
 
-            <Switch>
-                <Route path="/all" component={GemAll}/>
-                <Route exact path="/" component={Home}/>
-                <Route path="/NewPost" component={NewPost}/>
-                <Route path="/EditPost" component={EditPost}/>
-                <Route path="/SingleGem" component={SingleGem}/>
-                <Route path="/UserProfile" component={UserProfile}/>
-                <Route path="/EditUserProfile" component={EditUserProfile}/>
-            </Switch>
+           <Route exact path="/EditUserProfile" render={(props) => <EditUserProfile user={this.props} /> } />
 
-          </React.Fragment>
-          </Router>
-      );
-    }
-  }
+
+       </Switch>
+
+         </React.Fragment>
+         </Router>
+       );
+     }
 }
 
 export default MainApp

@@ -13,29 +13,75 @@ import EditUserProfile from './EditUserProfile'
 
 
 class MainApp extends React.Component {
-    render () {
-        this.state={
-            user: []
-        }
-       const {
 
-         signed_in,
-         sign_in_route,
-         sign_up,
-         sign_out_route,
-         first_name,
+    contructor(){
+        super()
+    this.state = {
+        success: false,
+        form:{
+            eventName: '',
+            address: '',
+            category: '',
+            eventDescription: '',
+            startTime: '',
+            endTime:'',
+            date: ''
+        }
+    }
+    this.getPost()
+}
+
+componentDidMount(){
+    this.getPost()
+}
+
+handleSubmit = (this.state.form) => {
+    // this.props.onSubmit(this.state.form)
+    return fetch('/posts'), {
+        body: JSON.stringify(this.state.form),
+        header:{
+            'Content-Type': 'application/json'
+        },
+        method: "POST"
+    }
+    .then((response) => {
+        if(response.ok){
+            return this.getPost()
+        }
+        // this.setState({success: true,
+        //                 form: form})
+    })
+}
+
+
+handleChange = (event) => {
+    console.log(this.state.form);
+    let {form} = this.state
+    form[event.target.name]= event.target.value
+    this.setState({form: form})
+};
+
+
+  render () {
+    const {
+      signed_in,
+      sign_in_route,
+      sign_up,
+      sign_out_route,
+       first_name,
          last_name,
          postal_code,
          email
-       } = this.props
+    } = this.props
 
-       return (
-           <Router>
-         <React.Fragment>
-           <Nav className="navbar navbar-expand-lg navbar-dark bg-primary">
-           <NavItem>
-               <Link className="navbar-brand " href="/">Hidden Gem</Link>
-           </NavItem>
+    return (
+        <Router>
+          <React.Fragment>
+            <Nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+            <NavItem>
+                <Link className="navbar-brand " href="/">Hidden Gem</Link>
+            </NavItem>
+
 
 
                {signed_in &&
@@ -69,6 +115,7 @@ class MainApp extends React.Component {
                }
 
            </Nav>
+
 
 
        <Switch>

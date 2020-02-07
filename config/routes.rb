@@ -5,6 +5,7 @@ Rails.application.routes.draw do
        get '*path', to: 'pages#index', constraints: ->(request){ request.format.html? }
        root to: 'pages#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
   # routes for users
     # shows all users
     get '/users' => 'users#index'
@@ -35,4 +36,5 @@ Rails.application.routes.draw do
     put 'posts/:id' => 'posts#update'
     # deletes a specific usser
     delete 'posts/:id' => 'posts#destroy'
+
 end

@@ -79,7 +79,7 @@ class MainApp extends React.Component {
            <Route path="/SingleGem" component={SingleGem}/>
            <Route exact path="/UserProfile" render={(props) => <UserProfile user={this.props} /> } />
 
-           <Route path="/EditUserProfile" component={EditUserProfile}/>
+           <Route exact path="/EditUserProfile" render={(props) => <EditUserProfile user={this.props} /> } />
 
 
        </Switch>

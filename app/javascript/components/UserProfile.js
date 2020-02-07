@@ -26,6 +26,7 @@ const UserProfile = (props) => {
 
                  </div>
                  </div>
+                 
         </div>
 
 

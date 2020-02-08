@@ -13,9 +13,8 @@ import EditUserProfile from './EditUserProfile'
 
 
 class MainApp extends React.Component {
-
-    constructor(){
-        super()
+    constructor(props){
+        super(props)
         this.state = {
             success: false,
             form:{
@@ -33,18 +32,22 @@ class MainApp extends React.Component {
     }
 
 componentDidMount(){
-    this.getPost()
+this.getPost()
 }
 
-handleSubmit = (event) => {
+
+handleSubmit = (post) => {
+    event.preventDefault();
+    // console.log(this.state.form)
     // this.props.onSubmit(this.state.form)
-    return fetch('/post'), {
-        body: JSON.stringify(this.state.form),
+    fetch('/posts', {
+        body: JSON.stringify(post),
         header:{
             'Content-Type': 'application/json'
         },
         method: "POST"
     }
+)
     .then((response) => {
         if(response.ok){
             return this.getPost()
@@ -73,8 +76,6 @@ getPost = () => {
         this.setState({posts: posts})
     })
 }
-
-
   render () {
     const {
       signed_in,

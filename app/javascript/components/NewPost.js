@@ -11,12 +11,12 @@ const NewPost = (props) =>{
 
                 <FormGroup className="form-group">
                     <Label className="col-form-label col-form-label-lg" for="inputLarge" htmlFor="event name">Enter Title</Label>
-                    <Input className="form-control form-control-lg" type="text" id="eventName" name="eventName"  onChange={props.handleChange}/>
+                    <Input className="form-control form-control-lg" type="text" id="eventName" name="event_name"  onChange={props.handleChange}/>
                 </FormGroup>
 
 
                 <FormGroup className="form-group">
-                    <Label for="exampleTextarea" htmlFor="event Description">Enter Description of your Gem</Label>
+                    <Label for="exampleTextarea" htmlFor="event Description">Enter a Description of your Gem</Label>
                     <textarea className="form-control" id="exampleTextarea" rows="3" name="event_description"  onChange={props.handleChange}></textarea>
                 </FormGroup>
 {/*}

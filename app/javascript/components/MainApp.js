@@ -13,18 +13,17 @@ import EditUserProfile from './EditUserProfile'
 
 
 class MainApp extends React.Component {
-
-    constructor(){
-        super()
+    constructor(props){
+        super(props)
         this.state = {
             success: false,
             form:{
-                eventName: '',
+                event_name: '',
                 address: '',
                 category: '',
-                eventDescription: '',
-                startTime: '',
-                endTime:'',
+                event_description: '',
+                start_time: '',
+                end_time:'',
                 date: ''
             },
             posts:[]
@@ -33,18 +32,22 @@ class MainApp extends React.Component {
     }
 
 componentDidMount(){
-    this.getPost()
+this.getPost()
 }
 
-handleSubmit = () => {
+
+handleSubmit = (post) => {
+    event.preventDefault();
+    // console.log(this.state.form)
     // this.props.onSubmit(this.state.form)
-    return fetch('/posts'), {
-        body: JSON.stringify(this.state.form),
+    fetch('/posts', {
+        body: JSON.stringify(post),
         header:{
             'Content-Type': 'application/json'
         },
         method: "POST"
     }
+)
     .then((response) => {
         if(response.ok){
             return this.getPost()
@@ -73,8 +76,6 @@ getPost = () => {
         this.setState({posts: posts})
     })
 }
-
-
   render () {
     const {
       signed_in,
@@ -134,7 +135,7 @@ getPost = () => {
        <Switch>
            <Route path="/all" component={GemAll}/>
            <Route exact path="/" render={(props) => <Home posts={this.state.posts}/> } />
-           <Route path="/NewPost" component={NewPost}/>
+         <Route  exact path="/NewPost" render={(props) => <NewPost posts={this.state.posts} handleSubmit={this.handleSubmit} handleChange={this.handleChange}/> } />
            <Route path="/EditPost" component={EditPost}/>
            <Route path="/SingleGem" component={SingleGem}/>
            <Route exact path="/UserProfile" render={(props) => <UserProfile user={this.props} /> } />

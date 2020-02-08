@@ -4,12 +4,16 @@ class PostsController < ApplicationController
         render json: posts
     end
     def post_params
-        params.require(:post).permit(:event_name, :address, :event_description, :start_time, :end_time, :date)
+        params.require(:post).permit(:event_name, :address, :category, :event_description, :start_time, :end_time, :date)
     end
 
     def create
         post = Post.create(post_params)
-        render json: post
+        # if post.valid?
+            render json: post
+        # else
+        #     render json: post.errors, status: 422
+        # end
     end
     def destroy
         post = Post.find(params[:id])
@@ -27,12 +31,12 @@ class PostsController < ApplicationController
               render json: post.errors
           end
     end
-  def show
-      post = Post.find(params[:id])
-      render json: post
-  end
-  def new
-      post = Post.new(params[:id])
-      render json: post
-  end
+    def show
+        post = Post.find(params[:id])
+        render json: post
+    end
+    def new
+        post = Post.new(params[:id])
+        render json: post
+    end
 end

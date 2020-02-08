@@ -12,29 +12,29 @@ Rails.application.routes.draw do
     # returns an HTML form for creating a new user
     get '/users/new' => 'users#new'
     # creates a new user
-    post 'users' => 'users#create'
+    post '/users' => 'users#create'
     # displays a specific user
-    get 'users/:id' => 'users#show'
+    get '/users/:id' => 'users#show'
     # returns an html form for editing a user
-    get 'users/:id/edit' => 'users#edit'
+    get '/users/:id/edit' => 'users#edit'
     # updates a specific usesr
-    put 'users/:id' => 'users#update'
+    put '/users/:id' => 'users#update'
     # deletes a specific usser
-    delete 'users/:id' => 'users#destroy'
+    delete '/users/:id' => 'users#destroy'
     # routes for posts
     # shows all posts
     get '/posts' => 'posts#index'
     # returns an HTML form for creating a new user
     get '/posts/new' => 'posts#new'
     # creates a new user
-    post 'posts' => 'posts#create'
+    post '/posts' => 'posts#create'
     # displays a specific user
-    get 'posts/:id' => 'posts#show'
+    get '/posts/:id' => 'posts#show'
     # returns an html form for editing a user
-    get 'posts/:id/edit' => 'posts#edit'
+    get '/posts/:id/edit' => 'posts#edit'
     # updates a specific usesr
-    put 'posts/:id' => 'posts#update'
+    put '/posts/:id' => 'posts#update'
     # deletes a specific usser
-    delete 'posts/:id' => 'posts#destroy'
+    delete '/posts/:id' => 'posts#destroy'
 
 end

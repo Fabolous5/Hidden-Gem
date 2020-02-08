@@ -1,48 +1,61 @@
 import React from "react"
 import { Button, Form, FormGroup, Label, Input, FormText, Jumbotron } from 'reactstrap';
 
-class NewPost extends React.Component {
-    constructor(props) {
-        super(props)
-}
+const NewPost = (props) =>{
 
-    render(){
-        let {eventName, address, category, eventDescription, startTime, endTime, date} = this.props.form
     return(
         <React.Fragment>
 
             <h1>Create New Gem</h1>
             <Form>
+
                 <FormGroup className="form-group">
                     <Label className="col-form-label col-form-label-lg" for="inputLarge" htmlFor="event name">Enter Title</Label>
-                    <Input className="form-control form-control-lg" type="text" id="eventName" name="eventName" value={eventName} onChange={this.handleChange}/>
+                    <Input className="form-control form-control-lg" type="text" id="eventName" name="event_name"  onChange={props.handleChange}/>
                 </FormGroup>
 
-                <FormGroup ClassName="form-group">
-                    <Label for="exampleTextarea" htmlFor="event Description">Enter Description of your Gem</Label>
-                    <textarea ClassName="form-control" id="exampleTextarea" rows="3" name="eventDescription" value={eventDescription} onChange={this.handleChange}></textarea>
-                </FormGroup>
 
+                <FormGroup className="form-group">
+                    <Label for="exampleTextarea" htmlFor="event Description">Enter a Description of your Gem</Label>
+                    <textarea className="form-control" id="exampleTextarea" rows="3" name="event_description"  onChange={props.handleChange}></textarea>
+                </FormGroup>
+{/*}
+        {props.posts.map((post)=>{
+            return (
                 <FormGroup className="form-group">
                     <Label className="col-form-label" for="inputDefault" htmlFor="address"> Address</Label>
-                    <Input type="text" className="form-control"  id="inputDefault" name="address" value={address} onChange={this.handleChange}/>
+                    <Input type="text" className="form-control"  id="inputDefault" name="address" value={post.address} onChange={props.handleChange}/>
                 </FormGroup>
-
+            )
+            })
+        }
+        {props.posts.map((post)=>{
+            return (
                 <FormGroup className="form-group">
                     <Label className="col-form-label" for="inputDefault" htmlFor="start time">Start Time</Label>
-                    <Input type="text" className="form-control" id="inputDefault" name="startTime" value={startTime} onChange={this.handleChange}/>
+                    <Input type="text" className="form-control" id="inputDefault" name="startTime" value={post.start_time} onChange={props.handleChange}/>
                 </FormGroup>
-
+            )
+            })
+            }
+            {props.posts.map((post)=>{
+                return (
                 <FormGroup className="form-group">
                     <Label className="col-form-label" for="inputDefault" htmlFor="end time">End Time</Label>
-                    <Input type="text" className="form-control"  id="inputDefault" name="endTime" value={endTime} onChange={this.handleChange}/>
+                    <Input type="text" className="form-control"  id="inputDefault" name="endTime" value={post.end_time} onChange={props.handleChange}/>
                 </FormGroup>
-
+            )
+            })
+            }
+            {props.posts.map((post)=>{
+                return (
                 <FormGroup className="form-group">
                     <Label className="col-form-label" for="inputDefault" htmlFor="date">Date</Label>
-                    <Input type="text" className="form-control" placeholder="MM/DD/YYYY"  id="inputDefault" name="date" value={date} onChange={this.handleChange}/>
+                    <Input type="text" className="form-control" placeholder="MM/DD/YYYY"  id="inputDefault" name="date" value={post.date} onChange={props.handleChange}/>
                 </FormGroup>
-
+            )
+            })
+        } */}
                 {/*<FormGroup className="form-group">
                     <select className="custom-select">
                         <option selected="">Add Catagory</option>
@@ -87,13 +100,12 @@ class NewPost extends React.Component {
 
                 </fieldset>
 */}
-                <button onClick={this.handleSubmit} type="submit" className="btn btn-primary">Submit Your Gem!</button>
+                <button onClick={props.handleSubmit} type="submit" className="btn btn-primary">Submit Your Gem!</button>
 
             </Form>
          </React.Fragment>
 
      )
-    }
 }
 
 export default NewPost

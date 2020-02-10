@@ -1,61 +1,44 @@
 import React from "react"
 import { Button, Form, FormGroup, Label, Input, FormText, Jumbotron } from 'reactstrap';
 
-const NewPost = (props) =>{
 
+const NewPost = (props) =>{
     return(
         <React.Fragment>
 
-            <h1>Create New Gem</h1>
-            <Form>
+            <h1>Enter Your Gem's Information</h1>
+            <Form onSubmit={props.handleSubmit}>
 
                 <FormGroup className="form-group">
                     <Label className="col-form-label col-form-label-lg" for="inputLarge" htmlFor="event name">Enter Title</Label>
-                    <Input className="form-control form-control-lg" type="text" id="eventName" name="event_name"  onChange={props.handleChange}/>
+                    <Input className="form-control form-control-lg" type="text" id="event_name" name="event_name"  onChange={props.handleChange}/>
                 </FormGroup>
 
 
                 <FormGroup className="form-group">
-                    <Label for="exampleTextarea" htmlFor="event Description">Enter a Description of your Gem</Label>
-                    <textarea className="form-control" id="exampleTextarea" rows="3" name="event_description"  onChange={props.handleChange}></textarea>
+                    <Label for="exampleTextarea" htmlFor="event description">Enter a Description of your Gem</Label>
+                    <textarea className="form-control" id="example_description" rows="3" name="event_description"  onChange={props.handleChange}></textarea>
                 </FormGroup>
-{/*}
-        {props.posts.map((post)=>{
-            return (
+
                 <FormGroup className="form-group">
                     <Label className="col-form-label" for="inputDefault" htmlFor="address"> Address</Label>
-                    <Input type="text" className="form-control"  id="inputDefault" name="address" value={post.address} onChange={props.handleChange}/>
+                    <Input type="text" className="form-control"  id="address" name="address"  onChange={props.handleChange}/>
                 </FormGroup>
-            )
-            })
-        }
-        {props.posts.map((post)=>{
-            return (
+
                 <FormGroup className="form-group">
                     <Label className="col-form-label" for="inputDefault" htmlFor="start time">Start Time</Label>
-                    <Input type="text" className="form-control" id="inputDefault" name="startTime" value={post.start_time} onChange={props.handleChange}/>
+                    <Input type="text" className="form-control" id="start_time" name="start_time" onChange={props.handleChange}/>
                 </FormGroup>
-            )
-            })
-            }
-            {props.posts.map((post)=>{
-                return (
+
                 <FormGroup className="form-group">
                     <Label className="col-form-label" for="inputDefault" htmlFor="end time">End Time</Label>
-                    <Input type="text" className="form-control"  id="inputDefault" name="endTime" value={post.end_time} onChange={props.handleChange}/>
+                    <Input type="text" className="form-control"  id="end_time" name="end_time" onChange={props.handleChange}/>
                 </FormGroup>
-            )
-            })
-            }
-            {props.posts.map((post)=>{
-                return (
+
                 <FormGroup className="form-group">
                     <Label className="col-form-label" for="inputDefault" htmlFor="date">Date</Label>
-                    <Input type="text" className="form-control" placeholder="MM/DD/YYYY"  id="inputDefault" name="date" value={post.date} onChange={props.handleChange}/>
+                    <Input type="text" className="form-control" placeholder="MM/DD/YYYY"  id="date" name="date"  onChange={props.handleChange}/>
                 </FormGroup>
-            )
-            })
-        } */}
                 {/*<FormGroup className="form-group">
                     <select className="custom-select">
                         <option selected="">Add Catagory</option>
@@ -100,9 +83,12 @@ const NewPost = (props) =>{
 
                 </fieldset>
 */}
-                <button onClick={props.handleSubmit} type="submit" className="btn btn-primary">Submit Your Gem!</button>
+
+                <button  type="submit" className="btn btn-primary">Submit Your Gem!</button>
 
             </Form>
+
+
          </React.Fragment>
 
      )

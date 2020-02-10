@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import { NavItem, NavLink as Link, Nav } from 'reactstrap'
 
 import GemAll from './GemAll'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import Home from './Home'
 import NewPost from './NewPost'
 import EditPost from './EditPost'
@@ -33,16 +33,16 @@ class MainApp extends React.Component {
 
 componentDidMount(){
 this.getPost()
+
 }
 
 
-handleSubmit = (post) => {
-    event.preventDefault();
+handleSubmit = (event) => {
     // console.log(this.state.form)
     // this.props.onSubmit(this.state.form)
     fetch('/posts', {
-        body: JSON.stringify(post),
-        header:{
+        body: JSON.stringify(this.state.form),
+        headers:{
             'Content-Type': 'application/json'
         },
         method: "POST"
@@ -51,10 +51,15 @@ handleSubmit = (post) => {
     .then((response) => {
         if(response.ok){
             return this.getPost()
+
+
+
         }
+        //
         // this.setState({success: true,
-        //                 form: form})
+        //                 redirect: true})
     })
+
 }
 
 
@@ -66,7 +71,8 @@ handleChange = (event) => {
 };
 
 getPost = () => {
-    return fetch('/posts')
+    fetch('/posts')
+
     .then((response)=> {
     if(response.ok){
         return response.json()
@@ -77,6 +83,8 @@ getPost = () => {
     })
 }
   render () {
+
+
     const {
       signed_in,
       sign_in_route,
@@ -88,12 +96,14 @@ getPost = () => {
          email
     } = this.props
 
+    let {event_name, address, category, event_description, start_time, end_time, date} = this.state.form
+
     return (
         <Router>
           <React.Fragment>
             <Nav className="navbar navbar-expand-lg navbar-dark bg-primary">
             <NavItem>
-                <Link className="navbar-brand " href="/">Hidden Gem</Link>
+                <Link className="navbar-brand " href="/">Hidden Gems 💎</Link>
             </NavItem>
 
 
@@ -102,13 +112,9 @@ getPost = () => {
                  <div>
                  <NavItem>
 
-                 <Link className=" navbar-brand btn btn-outline-primary" href="/all">All Gems</Link>
-
                  <Link className=" navbar-brand btn btn-outline-primary" href="/NewPost">Create New Gem</Link>
 
-                 <Link className=" navbar-brand btn btn-outline-primary" href="/EditPost">Edit Gem</Link>
-
-                 <Link className=" navbar-brand btn btn-outline-primary" href="/UserProfile">User Profile</Link>
+                 <Link className=" navbar-brand btn btn-outline-primary" href="/UserProfile">See Your Gems</Link>
 
                    <Link className=" navbar-brand btn btn-outline-primary" href={sign_out_route}>Sign Out</Link>
                    </NavItem>
@@ -136,8 +142,11 @@ getPost = () => {
            <Route path="/all" component={GemAll}/>
            <Route exact path="/" render={(props) => <Home posts={this.state.posts}/> } />
          <Route  exact path="/NewPost" render={(props) => <NewPost posts={this.state.posts} handleSubmit={this.handleSubmit} handleChange={this.handleChange}/> } />
-           <Route path="/EditPost" component={EditPost}/>
-           <Route path="/SingleGem" component={SingleGem}/>
+
+
+           <Route path="/SingleGem/:id" render={(props) => <SingleGem posts={this.state.posts} />}/>
+
+
            <Route exact path="/UserProfile" render={(props) => <UserProfile user={this.props} /> } />
 
            <Route exact path="/EditUserProfile" render={(props) => <EditUserProfile user={this.props} /> } />

@@ -4,13 +4,13 @@ class PostsController < ApplicationController
         render json: posts
     end
     def post_params
-        params.require(:post).permit(:event_name, :address, :category, :event_description, :start_time, :end_time, :date)
+        params.require(:post).permit( :event_name, :address, :category, :event_description, :start_time, :end_time, :date)
     end
 
     def create
         post = Post.create(post_params)
             render json: post
-            
+
     end
     def destroy
         post = Post.find(params[:id])

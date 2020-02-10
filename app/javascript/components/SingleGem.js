@@ -1,18 +1,20 @@
-import React from "react"
-import { Link } from 'react-router-dom'
+import React from 'react'
+import MainApp from './MainApp'
 
-const SingleGem = () => {
-    const cardWidth = {"widht": "400px"}
+const SingleGem = (props) => {
+
     const { id } = props.match.params
-    const post = props.posts.find((post) => post.id == parseInt(id))
 
     return(
-        <div className="container">
-            <div className="row">
-            <h1>this is where ONLY one Gem will be displayed</h1>
-            </div>
+
+        <div>
+            <h1>whats up</h1>
+                <div>
+                    {props.posts && <h1>{props.posts[id-1].event_name}</h1>}
+                </div>
         </div>
-    )
+
+        )
 }
 
 export default SingleGem

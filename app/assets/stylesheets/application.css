@@ -13,5 +13,3 @@
  *= require_tree .
  *= require_self
  */
-@import "bootstrap.min"
-#mapid { height: 180px; }

@@ -50,6 +50,7 @@ class SingleGem extends React.Component{
     )
   }
 
+
 }
 
 export default SingleGem

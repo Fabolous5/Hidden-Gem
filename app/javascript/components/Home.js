@@ -1,4 +1,5 @@
 import React from 'react'
+import { NavItem, NavLink as Link, Nav } from 'reactstrap'
 
 const Home = (props) => {
 
@@ -15,14 +16,15 @@ const Home = (props) => {
                 </p>
             </div>
 
-        {props.posts.map((post)=>{
+        {props.posts && props.posts.map((post, index)=>{
             return (
-            <div key={post.id} className="btn-toolbar d-flex justify-content-around" role="toolbar">
+            <div key={index} className="btn-toolbar d-flex justify-content-around" role="toolbar">
                 <div style={{width: "300px"}} className="card border-primary mb-3" >
                     <div className="card-header">{post.address}</div>
                     <div className="card-body">
                         <h4 className="card-title">{post.event_name}</h4>
                         <p className="card-text">{post.event_description}</p>
+                            <a href={`/posts/${post.id}`}>Click to see more details</a>
                     </div>
                 </div>
             </div>

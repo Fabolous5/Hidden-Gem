@@ -1,7 +1,8 @@
-import React from "react"
 
+import React from "react"
 const GemAll = () => {
     return(
+
         <div>
         <h1>this is the page that will show all the gems that are available</h1>
 
@@ -13,12 +14,8 @@ const GemAll = () => {
                 <p className="card-text">dahfkjdhf</p>
             </div>
             </div>
-
-
-
         </div>
         </div>
     )
 }
-
 export default GemAll

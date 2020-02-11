@@ -8,7 +8,13 @@ class ApplicationController < ActionController::Base
     before_action :configure_permitted_parameters, if: :devise_controller?
     protected
 
-
+    # def this_user
+    #     current_user ? current_user.first_name : "Fake"
+    # end
+    # def user
+    #     u = User.friendly.find_by(first_name: params[:first_name] )
+    #     u.first_name if current_user
+    # end
 
 
 end

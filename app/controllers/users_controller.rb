@@ -50,4 +50,20 @@ class UsersController < ApplicationController
       render json: user
   end
 
+  def you_in
+      if !signed_in
+          last_name: "mary",
+          first_name: "mary",
+          postal_code: "mary",
+          email: "mary"
+      elsif signed_in
+          last_name: current_user.last_name,
+          first_name: current_user.first_name,
+          postal_code: current_user.postal_code,
+          email: current_user.email
+      else
+          puts "something is wrong"
+      end
+  end
+
 end

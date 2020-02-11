@@ -27,7 +27,7 @@ class MainApp extends React.Component {
                 end_time:'',
                 date: ''
             },
-            posts: false
+            posts: []
         }
     }
 
@@ -121,12 +121,12 @@ getOnePost = () => {
                  <div>
                  <NavItem>
 
-                 <Link className=" navbar-brand btn btn-outline-primary" href="/NewPost">Create New Gem</Link>
+                    <Link className=" navbar-brand btn btn-outline-primary" href="/NewPost">Create New Gem</Link>
 
-                 <Link className=" navbar-brand btn btn-outline-primary" href="/UserProfile">See Your Gems</Link>
+                    <Link className=" navbar-brand btn btn-outline-primary" href="/UserProfile">See Your Gems</Link>
 
                    <Link className=" navbar-brand btn btn-outline-primary" href={sign_out_route}>Sign Out</Link>
-                   </NavItem>
+                </NavItem>
 
                  </div>
 
@@ -150,7 +150,7 @@ getOnePost = () => {
 
                    <Route path="/all" component={GemAll}/>
 
-                   <Route exact path="/" render={(props) => <Home posts={this.state.posts}/> } />
+                   <Route exact path="/" render={(props) => <Home user={this.props} posts={this.state.posts}/> } />
 
                    <Route  exact path="/NewPost" render={(props) => <NewPost posts={this.state.posts} handleSubmit={this.handleSubmit} handleChange={this.handleChange}/> } />
 

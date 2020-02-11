@@ -6,10 +6,6 @@ const stamenTonerAttr = 'Map tiles by <a href="http://stamen.com">Stamen Design<
 const mapCenter = [39.9528, -75.1638];
 const zoomLevel = 12;
 export default class App extends Component {
-    // var current_user = document.getElementById('cusr');
-    //
-    // {current_user.dataset.user === current_user.dataset.currentUser ? "Yes" : "No!" }
-    // 
     render() {
         return (
             <div>

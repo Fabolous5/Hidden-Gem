@@ -3,14 +3,15 @@ class PostsController < ApplicationController
         posts = Post.all
         render json: posts
     end
+    # def user_index
+    #     @posts = current_user.posts
+    # end
     def post_params
-        params.require(:post).permit( :event_name, :address, :category, :event_description, :start_time, :end_time, :date)
+        params.require(:post).permit(:user_id, :event_name, :address, :category, :event_description, :start_time, :end_time, :date)
     end
-
     def create
-        post = Post.create(post_params)
+        post = Post.create(post_params.merge(user_id: current_user.id))
             render json: post
-
     end
     def destroy
         post = Post.find(params[:id])

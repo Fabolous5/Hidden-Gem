@@ -4,18 +4,6 @@ import MainApp from "./MainApp"
 
 const NewPost = (props) =>{
 
-
-    const { id } = props.match.params
-    console.log("id:", id)
-
-    const { form } = props.form
-    console.log(form);
-    // const { posts } = props.params.posts.event_name
-    // console.log(posts);
-
-    // console.log("here", id)
-    // console.log("props:", );
-
     return(
         <React.Fragment>
         <div>
@@ -102,10 +90,7 @@ const NewPost = (props) =>{
                 <button href="/" type="submit" className="btn btn-primary">Submit Your Gem!</button>
 
             </Form>
-
-
          </React.Fragment>
-
      )
 }
 

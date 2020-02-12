@@ -7,7 +7,7 @@ class PostsController < ApplicationController
     #     @posts = current_user.posts
     # end
     def post_params
-        params.require(:post).permit(:user_id, :event_name, :address, :category, :event_description, :start_time, :end_time, :date)
+        params.require(:post).permit(:user_id, :event_name, :address, :category, :event_description, :start_time, :end_time, :date, :photo)
     end
     def create
         post = Post.create(post_params.merge(user_id: current_user.id))

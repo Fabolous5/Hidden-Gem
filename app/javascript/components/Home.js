@@ -38,6 +38,8 @@ const Home = (props) => {
                         <h4 className="card-title">{post.event_name}</h4>
                         <p className="card-text">{post.event_description}</p>
                             <a href={`/posts/${post.id}`}>Click to see more details</a>
+                            <a  href={`/NewPost/${post.id}`}> Edit </a>
+                            <a  href={`/EditPost/${post.id}`}> Edit BUT BETTER </a>
                     </div>
                 </div>
             </div>

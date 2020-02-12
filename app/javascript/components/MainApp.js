@@ -16,7 +16,9 @@ class MainApp extends React.Component {
     constructor(props){
         super(props)
         this.state = {
+            name: "TEST",
             success: false,
+            editable: false,
             form:{
                 id: '',
                 event_name: '',
@@ -32,10 +34,14 @@ class MainApp extends React.Component {
         }
     }
 
+
 componentDidMount = () => {
     this.getPost()
 }
 
+redirect = () => {
+    window.location.replace("/")
+}
 
 handleSubmit = (event) => {
     // event.preventDefault()
@@ -51,7 +57,9 @@ handleSubmit = (event) => {
 )
     .then((response) => {
         if(response.ok){
+            return this.redirect()
             return this.getPost()
+
 
 
 
@@ -82,17 +90,6 @@ getPost = () => {
     .then ((posts)=> {
         this.setState({posts: posts})
     })
-}
-
-getOnePost = () => {
-    fetch('/posts/:id')
-    .then((response)=> {
-    if(response.ok){
-        return response.json()
-        }
-    })
-    const { id } = this.state.match.params;
-    const post = posts.find((post) => post.id === parseInt(id))
 }
 
   render () {
@@ -128,6 +125,7 @@ getOnePost = () => {
                     <Link className=" navbar-brand btn btn-outline-primary" href="/UserProfile">See Your Gems</Link>
 
                    <Link className=" navbar-brand btn btn-outline-primary" href={sign_out_route}>Sign Out</Link>
+
                 </NavItem>
 
                  </div>
@@ -152,9 +150,13 @@ getOnePost = () => {
 
                    <Route path="/all" component={GemAll}/>
 
-                   <Route exact path="/" render={(props) => <Home user={this.props} posts={this.state.posts}/> } />
+                   <Route exact path="/" render={(props) => <Home user={this.props} posts={this.state.posts} getInitialState={this.getInitialState} handleEdit={this.handleEdit}/> } />
 
-                   <Route  exact path="/NewPost" render={(props) => <NewPost posts={this.state.posts} handleSubmit={this.handleSubmit} handleChange={this.handleChange}/> } />
+                   <Route  exact path="/NewPost" render={(props) => <NewPost {...props} posts={this.state.posts} form={this.state.form}
+                   setForm={this.setForm} handleSubmit={this.handleSubmit} handleChange={this.handleChange}/> } />
+
+                   <Route  exact path="/NewPost/:id" render={(props) => <NewPost {...props} posts={this.state.posts} form={this.state.form}
+                   setForm={this.setForm} handleSubmit={this.handleSubmit} handleChange={this.handleChange}/> } />
 
                    <Route exact path="/posts/:id"
                         render={(props) =>
@@ -163,6 +165,9 @@ getOnePost = () => {
                    <Route exact path="/UserProfile" render={(props) => <UserProfile user={this.props} /> } />
 
                    <Route exact path="/EditUserProfile" render={(props) => <EditUserProfile user={this.props} /> } />
+
+                   <Route  exact path="/EditPost/:id" render={(props) => <EditPost {...props}
+                    handleSubmit={this.handleSubmit}  /> } />
 
                </Switch>
 

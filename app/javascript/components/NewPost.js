@@ -1,17 +1,32 @@
 import React from "react"
 import { Button, Form, FormGroup, Label, Input, FormText, Jumbotron } from 'reactstrap';
-
+import MainApp from "./MainApp"
 
 const NewPost = (props) =>{
+
+
+    const { id } = props.match.params
+    console.log("id:", id)
+
+    const { form } = props.form
+    console.log(form);
+    // const { posts } = props.params.posts.event_name
+    // console.log(posts);
+
+    // console.log("here", id)
+    // console.log("props:", );
+
     return(
         <React.Fragment>
+        <div>
+        </div>
 
             <h1>Enter Your Gem's Information</h1>
             <Form onSubmit={props.handleSubmit}>
 
                 <FormGroup className="form-group">
                     <Label className="col-form-label col-form-label-lg" for="inputLarge" htmlFor="event name">Enter Title</Label>
-                    <Input className="form-control form-control-lg" type="text" id="event_name" name="event_name"  onChange={props.handleChange}/>
+                    <textarea value={props.posts.event_name} className="form-control form-control-lg" id="event_name" name="event_name"  onChange={props.handleChange}></textarea>
                 </FormGroup>
 
 
@@ -84,7 +99,7 @@ const NewPost = (props) =>{
                 </fieldset>
 */}
 
-                <button  type="submit" className="btn btn-primary">Submit Your Gem!</button>
+                <button href="/" type="submit" className="btn btn-primary">Submit Your Gem!</button>
 
             </Form>
 

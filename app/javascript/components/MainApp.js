@@ -25,7 +25,8 @@ class MainApp extends React.Component {
                 event_description: '',
                 start_time: '',
                 end_time:'',
-                date: ''
+                date: '',
+                user_id: ''
             },
             posts: []
         }
@@ -37,6 +38,7 @@ componentDidMount = () => {
 
 
 handleSubmit = (event) => {
+    // event.preventDefault()
     // console.log(this.state.form)
     // this.props.onSubmit(this.state.form)
     fetch('/posts', {

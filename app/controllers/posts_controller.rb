@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
     def index
-        posts = Post.all
-        render json: posts
+        @posts = Post.all
+
     end
     # def user_index
     #     @posts = current_user.posts

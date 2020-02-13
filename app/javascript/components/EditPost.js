@@ -1,5 +1,6 @@
 import React from "react"
 import MainApp from './MainApp'
+import ActiveStorageProvider from 'react-activestorage-provider'
 import { Button, Form, FormGroup, Label, Input, FormText, Jumbotron } from 'reactstrap';
 import {Link} from 'react-router-dom';
 
@@ -50,7 +51,7 @@ class EditPost extends React.Component {
 
     delete = () => {
         this.props.handleDelete(this.state.form)
-    
+
     }
 
 
@@ -109,4 +110,4 @@ class EditPost extends React.Component {
     }
 }
 
-export default EditPost
+ export default EditPost

@@ -33,6 +33,9 @@ const Home = (props) => {
             return (
             <div key={index} role="toolbar">
                 <div style={{width: "300px", height: "200px"}} className="card border-primary mb-3" >
+                {post.photo_url &&
+                  <img src={post.photo_url} className="card-img-top"/>
+                  }
                     <div className="card-header">{post.address}</div>
                     <div className="card-body">
                         <h4 className="card-title">{post.event_name}</h4>

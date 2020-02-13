@@ -1,51 +1,51 @@
 import React from 'react'
 
-import { NavItem, NavLink as Link, Nav } from 'reactstrap'
+import { NavItem, NavLink, Nav } from 'reactstrap'
+import {Link} from 'react-router-dom';
 
 const Home = (props) => {
 
-
+    const taskSize = {"maxHeight": "500px", "overflowY": "scroll"}
     return(
         <div>
         {props.user.signed_in &&
             <div  className="jumbotron">
-                <h1 className="display-3">Welcome {props.user.first_name}!</h1>
-                <p className="lead">words</p>
+                <h1 className="display-3">Welcome to Hidden Gems, {props.user.first_name}!</h1>
+                <p className="lead">A place to discover Hidden Gems in your area.</p>
                 <hr className="my-4"/>
-                <p>words</p>
+                <p>For locals. By locals.</p>
 
             </div>
         }
         {!props.user.signed_in &&
             <div  className="jumbotron">
                 <h1 className="display-3">Welcome to Hidden Gems!</h1>
-                <p className="lead">For locals by locals</p>
+                <p className="lead">A place to discover Hidden Gems in your area.</p>
                 <hr className="my-4"/>
-                <p>It uses utility classNamees for typography and spacing to space content out within the larger container.</p>
+                <p>For locals. By locals.</p>
                 <p className="lead">
                 <a className="btn btn-primary btn-lg" href="/users/sign_up" role="button">Learn more</a>
                 </p>
             </div>
         }
 
-            <div className="btn-toolbar d-flex justify-content-around">
-        {props.posts && props.posts.map((post, index)=>{
-            return (
-            <div key={index} role="toolbar">
-                <div style={{width: "300px", height: "200px"}} className="card border-primary mb-3" >
-                    <div className="card-header">{post.address}</div>
-                    <div className="card-body">
-                        <h4 className="card-title">{post.event_name}</h4>
-                        <p className="card-text">{post.event_description}</p>
-                            <a href={`/posts/${post.id}`}>Click to see more details</a>
-                            <a  href={`/NewPost/${post.id}`}> Edit </a>
-                            <a  href={`/EditPost/${post.id}`}> Edit BUT BETTER </a>
+            <div  className="btn-toolbar d-flex justify-content-around">
+            {props.posts && props.posts.map((post, index)=>{
+                return (
+                    <div style={taskSize} key={index} role="toolbar">
+                        <div style={{width: "300px", height: "200px"}} className="card border-primary mb-3" >
+                            <div className="card-header"></div>
+                            <div className="card-body">
+                                <h4 className="card-title">{post.event_name}</h4>
+                                <p className="card-text">{post.event_description}</p>
+                                    <Link to={`/posts/${post.id}`}>Click to see more details</Link>
+                                    <Link to={`/EditPost/${post.id}`}> Edit Gem</Link>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                    )
+                })}
             </div>
-            )
-        })}
-        </div>
         </div>
     )
 }

@@ -6,6 +6,7 @@ const UserProfile = (props) => {
     return(
         <div>
             <h1>Hello, {props.user.first_name}!</h1>
+            
                 <div className="btn-toolbar d-flex justify-content-around" role="toolbar">
                     <div style={{width: "300px"}} className="d-flex justify-content-around card text-white bg-primary mb-3" >
                         <img style={{width: "200px"}} src="https://p0.pikrepo.com/preview/699/108/silhouette-of-person-in-white-background.jpg" alt="Card image" />

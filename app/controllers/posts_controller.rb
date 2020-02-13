@@ -23,7 +23,7 @@ class PostsController < ApplicationController
     end
     def update
         post = Post.find(params[:id])
-          if Post.update post_params
+          if post.update post_params
               render json: post
           else
               render json: post.errors

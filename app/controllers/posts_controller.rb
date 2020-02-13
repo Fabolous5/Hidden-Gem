@@ -22,16 +22,16 @@ class PostsController < ApplicationController
           end
     end
     def update
-        post = Post.find(params[:id])
+        @post = Post.find(params[:id])
           if Post.update post_params
-              render json: post
+            render :show
           else
-              render json: post.errors
+              render json: @post.errors
           end
     end
     def show
-        post = Post.find(params[:id])
-        render json: post
+        @post = Post.find(params[:id])
+
     end
     def new
         post = Post.new(params[:id])

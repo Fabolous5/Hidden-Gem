@@ -44,9 +44,6 @@ redirect = () => {
 }
 
 handleSubmit = (event) => {
-    // event.preventDefault()
-    // console.log(this.state.form)
-    // this.props.onSubmit(this.state.form)
     fetch('/posts', {
         body: JSON.stringify(this.state.form),
         headers:{
@@ -158,7 +155,7 @@ getPost = () => {
                    <Route  exact path="/NewPost/:id" render={(props) => <NewPost {...props} posts={this.state.posts} form={this.state.form}
                    setForm={this.setForm} handleSubmit={this.handleSubmit} handleChange={this.handleChange}/> } />
 
-                   <Route exact path="/posts/:id"
+                   <Route exact path="/SingleGem/:id"
                         render={(props) =>
                             <SingleGem {...props} posts={this.state.posts} />}/>
 
@@ -166,8 +163,7 @@ getPost = () => {
 
                    <Route exact path="/EditUserProfile" render={(props) => <EditUserProfile user={this.props} /> } />
 
-                   <Route  exact path="/EditPost/:id" render={(props) => <EditPost {...props}
-                    handleSubmit={this.handleSubmit}  /> } />
+                   <Route  exact path="/EditPost/:id" render={(props) => <EditPost {...props} handleChange={this.handleChange} handleSubmit={this.handleSubmit}  /> } />
 
                </Switch>
 

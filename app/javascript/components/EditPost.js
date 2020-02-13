@@ -1,6 +1,7 @@
 import React from "react"
 import MainApp from './MainApp'
 import ActiveStorageProvider from 'react-activestorage-provider'
+import { Button, Form, FormGroup, Label, Input, FormText, Jumbotron } from 'reactstrap';
 
 class EditPost extends React.Component {
     constructor(props){

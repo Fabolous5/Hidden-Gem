@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
     def index
-        @posts = Post.all
+        posts = Post.all
+        render json: posts
 
     end
     # def user_index
@@ -26,11 +27,12 @@ class PostsController < ApplicationController
           if post.update post_params
               render json: post
           else
-              render json: @post.errors
+              render json: post.errors
           end
     end
     def show
-        @post = Post.find(params[:id])
+        post = Post.find(params[:id])
+        render json: post
 
     end
     def new

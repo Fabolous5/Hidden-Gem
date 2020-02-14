@@ -8,26 +8,26 @@ const Home = (props) => {
     const taskSize = {"maxHeight": "500px", "overflowY": "scroll"}
     return(
         <div>
-        {props.user.signed_in &&
-            <div  className="jumbotron">
-                <h1 className="display-3">Welcome to Hidden Gems, {props.user.first_name}!</h1>
-                <p className="lead">A place to discover Hidden Gems in your area.</p>
-                <hr className="my-4"/>
-                <p>For locals. By locals.</p>
+            {props.user.signed_in &&
+                <div  className="jumbotron">
+                    <h1 className="display-3">Welcome to Hidden Gems, {props.user.first_name}!</h1>
+                    <p className="lead">A place to discover Hidden Gems in your area.</p>
+                    <hr className="my-4"/>
+                    <p>For locals. By locals.</p>
 
-            </div>
-        }
-        {!props.user.signed_in &&
-            <div  className="jumbotron">
-                <h1 className="display-3">Welcome to Hidden Gems!</h1>
-                <p className="lead">A place to discover Hidden Gems in your area.</p>
-                <hr className="my-4"/>
-                <p>For locals. By locals.</p>
-                <p className="lead">
-                <a className="btn btn-primary btn-lg" href="/users/sign_up" role="button">Learn more</a>
-                </p>
-            </div>
-        }
+                </div>
+            }
+            {!props.user.signed_in &&
+                <div  className="jumbotron">
+                    <h1 className="display-3">Welcome to Hidden Gems!</h1>
+                    <p className="lead">A place to discover Hidden Gems in your area.</p>
+                    <hr className="my-4"/>
+                    <p>For locals. By locals.</p>
+                    <p className="lead">
+                    <a className="btn btn-primary btn-lg" href="/users/sign_up" role="button">Learn more</a>
+                    </p>
+                </div>
+            }
 
             <div  className="btn-toolbar d-flex justify-content-around">
             {props.posts && props.posts.map((post, index)=>{

@@ -12,6 +12,8 @@ import UserProfile from './UserProfile'
 import EditUserProfile from './EditUserProfile'
 
 
+
+
 class MainApp extends React.Component {
     constructor(props){
         super(props)
@@ -66,7 +68,7 @@ handleSubmit = (event) => {
 
 
 handleChange = (event) => {
-    console.log(this.state.form);
+    console.log("state",this.state.form);
     let {form} = this.state
     form[event.target.name]= event.target.value
     this.setState({form: form})
@@ -77,8 +79,11 @@ getPost = () => {
 
     .then((response)=> {
     if(response.ok){
+
+        console.log("here",response);
         return response.json()
         }
+
     })
     .then ((posts)=> {
         this.setState({posts: posts})
@@ -105,23 +110,23 @@ getThatPost = (post) =>{
 }
 
 
-    handleDelete = (post) => {
-        fetch(`/posts/${post.id}`, {
-            method: "DELETE"
-        }).then((response) => {
-            if(response.ok){
-                return response.json
-            }
-            else{
-            }
-        })
-        .then(() => {
+handleDelete = (post) => {
+    fetch(`/posts/${post.id}`, {
+        method: "DELETE"
+    }).then((response) => {
+        if(response.ok){
+            return response.json
+        }
+        else{
+        }
+    })
+    .then(() => {
             this.setState({post: post})
-        })
-        .then(()=>{
-                return this.getPost()
-        })
-    }
+    })
+    .then(()=>{
+            return this.getPost()
+    })
+}
 
   render () {
     const {

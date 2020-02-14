@@ -10,6 +10,7 @@ import EditPost from './EditPost'
 import SingleGem from './SingleGem'
 import UserProfile from './UserProfile'
 import EditUserProfile from './EditUserProfile'
+import Image from './Image'
 
 
 
@@ -200,6 +201,8 @@ handleDelete = (post) => {
                    <Route exact path="/EditUserProfile" render={(props) => <EditUserProfile user={this.props} posts={this.state.posts} /> } />
 
                    <Route  exact path="/EditPost/:id" render={(props) => <EditPost {...props} posts={this.state.posts} form={this.state.form} getPost={this.getThatPost} handleChange={this.handleChange} handleDelete={this.handleDelete} handleEdit={this.handleEdit} redirect={this.redirect}  /> } />
+
+                   <Route exact path="/image/:id" render={(props) => <Image {...props} posts={this.state.post} />}/>
 
                </Switch>
 

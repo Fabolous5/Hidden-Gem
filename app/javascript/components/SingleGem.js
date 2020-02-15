@@ -2,6 +2,7 @@ import React from "react"
 import {Map, TileLayer, Marker, Popup} from 'react-leaflet'
 import L from "leaflet"
 import 'leaflet/dist/leaflet.css';
+import MainApp from './MainApp'
 
 L.Icon.Default.imagePath = "https://unpkg.com/leaflet@1.5.0/dist/images/"
 
@@ -15,7 +16,46 @@ class SingleGem extends React.Component{
         }
     }
 
+    // componentDidMount(){
+    //     this.setForm()
+    // }
+    //
+    //
+    // setForm = () => {
+    //     const { form } = this.state
+    //     const { posts } = this.props
+    //     const post = posts.find((p)=> p.id === parseInt(form.id))
+    //     this.setState({posts: posts})
+    //     console.log(this.state.posts);
+    // }
+
+    //  componentDidMount() {
+    //     // this.props.getPost().then(response => {
+    //     //     console.log(this.props.posts);
+    //     //
+    //     // })
+    //     this.props.getPost();
+    //     console.log(this.props.getPost);
+    //     console.log(this.props.posts);
+    // }
+
     render() {
+        // const posts = this.state
+        // const postId = this.state.id
+        // const post = posts.find((p)=> p.id == postId)
+        // const { id } = this.props.match.params
+        // console.log("here we are now again", id);
+        //
+        // const { post } = this.props.posts;
+        // console.log("um", this.props.posts);
+        // console.log("over here", this.state.form)
+        // console.log("here we go", id.posts);
+        // const practice = this.props.posts[0];
+        // console.log("here we are now", this.props.posts[0]);
+        // const practice = this.props.posts[0];
+        // console.log("here we are now again", practice);
+
+
         const accessToken = 'pk.eyJ1IjoiamxvcGV6MDEwOCIsImEiOiJjazZjam9oN20wYzRwM21tbGdtcjVqM2hnIn0.Xrqyk3Y6h9sqaEssl3qwHw'
 
         const tileUrl = 'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}'
@@ -26,45 +66,33 @@ class SingleGem extends React.Component{
         L.Icon.Default
 
     return (
+        <React.Fragment>
+                <div>
 
-    <div>
-        <div>
+                    <Map
+                        ref={m => { this.leafletMap = m }}
+                        id="map"
+                        center={this.state.mapCenter}
+                        zoom={this.state.zoom}
+                        maxZoom={maxZoom}
+                        style={{width: '100%',height: '400px'}}>
 
-            <h1>Event Name: </h1>
-                <h2>Date: </h2>
-                <h2>Start Time: </h2>
-                <h2>Address: </h2>
-        </div>
+                        <TileLayer
+                          attribution={attribution}
+                          url={tileUrl}
+                          id='mapbox/streets-v11'
+                          accessToken={accessToken}/>
 
+                        <Marker position={this.state.mapCenter}>
+                            <Popup>You HiddenGem is here!!!</Popup>
+                        </Marker>
 
-      <Map
-        ref={m => { this.leafletMap = m }}
-        id="map"
-        center={this.state.mapCenter}
-        zoom={this.state.zoom}
-        maxZoom={maxZoom}
-        style={{width: '100%',height: '400px'}}
+                     </Map>
 
-       >
-        <TileLayer
-          attribution={attribution}
-          url={tileUrl}
-          id='mapbox/streets-v11'
-          accessToken={accessToken}
-        />
-
-        <Marker position={this.state.mapCenter}>
-         <Popup>You HiddenGem is here!!!</Popup>
-       </Marker>
-
-      </Map>
-      <h1>Description of the event: </h1>
-        </div>
-
+                </div>
+        </React.Fragment>
     )
   }
-
-
 }
 
 export default SingleGem

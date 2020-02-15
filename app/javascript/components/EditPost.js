@@ -22,15 +22,8 @@ class EditPost extends React.Component {
             },
         }
     }
-    componentDidMount = () => {
+    componentDidMount(){
         this.setForm()
-    }
-
-    componetWillRecieveProps = (nextProps) =>{
-        const { id } = this.state.form
-        if(id !== nextProps.id){
-            this.setState({id: nextProps.id})
-        }
     }
 
     setForm = () => {

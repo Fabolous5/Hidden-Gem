@@ -1,3 +1,4 @@
+
 import React from "react"
 import PropTypes from "prop-types"
 import { NavItem, NavLink as Link, Nav } from 'reactstrap'
@@ -10,6 +11,7 @@ import EditPost from './EditPost'
 import SingleGem from './SingleGem'
 import UserProfile from './UserProfile'
 import EditUserProfile from './EditUserProfile'
+import Show from './Show'
 
 
 
@@ -38,14 +40,11 @@ class MainApp extends React.Component {
     }
 
 
-componentDidMount = () => {
+componentDidMount(){
     this.getPost()
 }
 
-redirect = () => {
-    window.location.replace("/")
-}
-
+//handleSubmit handles the submit of our new post. It is changing and updating the state of posts
 handleSubmit = (event) => {
     fetch('/posts', {
         body: JSON.stringify(this.state.form),
@@ -54,41 +53,54 @@ handleSubmit = (event) => {
         },
         method: "POST"
     })
-
     .then((response) => {
         if(response.ok){
-            return this.redirect()
-            this.getPost()
-
+            return this.getPost()
         }
-
     })
-
 }
 
-
+//handleChange is being used for NewPost and EditPost to change the state of each input field as things are being typed
 handleChange = (event) => {
-    console.log("state",this.state.form);
     let {form} = this.state
     form[event.target.name]= event.target.value
     this.setState({form: form})
 };
 
+//getPost is our fetch request we are using for our Home page to show all Gems
 getPost = () => {
     fetch('/posts')
-
     .then((response)=> {
     if(response.ok){
-
-        console.log("here",response);
         return response.json()
         }
-
     })
     .then ((posts)=> {
         this.setState({posts: posts})
     })
 }
+
+//getPostId is our fetch request we are using for our SingleGem
+getPostId = (id) => {
+    fetch(`/posts/${id}`, {
+        body: JSON.stringify(post),
+        headers:{
+            'Content-Type': 'application/json'
+        },
+        method: "GET"
+    })
+    .then((response)=> {
+    if(response.ok){
+        return response.json()
+        }
+    })
+    .then ((posts)=> {
+        this.setState({posts: posts})
+        console.log(this.state.posts);
+    })
+}
+
+//getThatPost is being used when we are fetching posts for editing our post. It pulls in that specific posts information which then updates the state of post per our edits
 getThatPost = (post) =>{
     fetch(`/posts/${post.id}`,{
         body: JSON.stringify(post),
@@ -109,7 +121,7 @@ getThatPost = (post) =>{
     })
 }
 
-
+//handleDelete is our fetch for deleting. It allows us to delete the Gem based on that param and redirects to Home and we call on getPost to display what Gems are left without needing to refresh the page
 handleDelete = (post) => {
     fetch(`/posts/${post.id}`, {
         method: "DELETE"
@@ -119,11 +131,9 @@ handleDelete = (post) => {
         }
         else{
         }
-    })
-    .then(() => {
+    }).then(() => {
             this.setState({post: post})
-    })
-    .then(()=>{
+    }).then(()=>{
             return this.getPost()
     })
 }
@@ -145,8 +155,8 @@ handleDelete = (post) => {
     return (
         <Router>
           <React.Fragment>
-            <Nav className="navbar navbar-expand-lg navbar-dark bg-primary">
-            <NavItem>
+            <Nav className="nav nav-tabs navbar navbar-expand-lg navbar-dark bg-dark">
+            <NavItem className="active">
                 <Link className="navbar-brand " href="/">Hidden Gems 💎</Link>
             </NavItem>
 
@@ -169,12 +179,12 @@ handleDelete = (post) => {
                }
                {!signed_in &&
                  <div>
-                 <NavItem>
-                   <Link className=" navbar-brand btn btn-outline-primary" href="/all">All Gems</Link>
+                 <NavItem className="active">
+                   <Link className="navbar-brand btn btn-outline-secondary" href="/all">All Gems</Link>
 
-                   <Link className=" navbar-brand btn btn-outline-primary" href={sign_in_route}>Sign In</Link>
+                   <Link className="navbar-brand btn btn-outline-secondary" href={sign_in_route}>Sign In</Link>
 
-                   <Link className="navbar-brand btn btn-outline-primary"  href={sign_up}>Sign Up</Link>
+                   <Link className="navbar-brand btn btn-outline-secondary"  href={sign_up}>Sign Up</Link>
                </NavItem>
                  </div>
                }
@@ -184,22 +194,21 @@ handleDelete = (post) => {
 
                <Switch>
 
-                   <Route path="/all" component={GemAll}/>
-
                    <Route exact path="/" render={(props) => <Home user={this.props} posts={this.state.posts} getInitialState={this.getInitialState} handleEdit={this.handleEdit}/> } />
 
                    <Route  exact path="/NewPost" render={(props) => <NewPost {...props} posts={this.state.posts} form={this.state.form}
                    setForm={this.setForm} handleSubmit={this.handleSubmit} handleChange={this.handleChange}/> } />
 
-
-
-                   <Route exact path="/posts/:id" render={(props) => <SingleGem {...props} posts={this.state.posts} />}/>
+                   <Route exact path="/posts/:id" render={(props) => <SingleGem {...props} posts={this.state.posts} form={this.state.form} getPost={this.getThatPost} />}/>
 
                    <Route exact path="/UserProfile" render={(props) => <UserProfile user={this.props} /> } />
 
                    <Route exact path="/EditUserProfile" render={(props) => <EditUserProfile user={this.props} posts={this.state.posts} /> } />
 
-                   <Route  exact path="/EditPost/:id" render={(props) => <EditPost {...props} posts={this.state.posts} form={this.state.form} getPost={this.getThatPost} handleChange={this.handleChange} handleDelete={this.handleDelete} handleEdit={this.handleEdit} redirect={this.redirect}  /> } />
+                   <Route  exact path="/EditPost/:id" render={(props) => <EditPost {...props} posts={this.state.posts} form={this.state.form} getPost={this.getThatPost} handleChange={this.handleChange} handleDelete={this.handleDelete} handleEdit={this.handleEdit} /> } />
+
+                   <Route exact path="/Show/:id" render={(props) => <Show {...props} posts={this.state.posts} form={this.state.form} getPost={this.getPostId} name={this.state.name}/>}/>
+
 
                </Switch>
 

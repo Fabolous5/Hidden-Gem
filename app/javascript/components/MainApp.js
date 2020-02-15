@@ -11,7 +11,11 @@ import EditPost from './EditPost'
 import SingleGem from './SingleGem'
 import UserProfile from './UserProfile'
 import EditUserProfile from './EditUserProfile'
+
 import Show from './Show'
+
+import Image from './Image'
+
 
 
 
@@ -209,6 +213,8 @@ handleDelete = (post) => {
 
                    <Route exact path="/Show/:id" render={(props) => <Show {...props} posts={this.state.posts} form={this.state.form} getPost={this.getPostId} name={this.state.name}/>}/>
 
+
+                   <Route exact path="/image/:id" render={(props) => <Image {...props} posts={this.state.post} />}/>
 
                </Switch>
 

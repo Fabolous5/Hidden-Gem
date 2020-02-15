@@ -3,6 +3,7 @@ import MainApp from './MainApp'
 import ActiveStorageProvider from 'react-activestorage-provider'
 import { Button, Form, FormGroup, Label, Input, FormText, Jumbotron } from 'reactstrap';
 import {Link} from 'react-router-dom';
+import Image from './Image'
 
 class EditPost extends React.Component {
     constructor(...props){

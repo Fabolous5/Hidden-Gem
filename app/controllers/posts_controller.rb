@@ -1,7 +1,6 @@
 class PostsController < ApplicationController
     def index
-        posts = Post.all
-        render json: posts
+        @posts = Post.all
 
     end
 
@@ -26,17 +25,17 @@ class PostsController < ApplicationController
           end
     end
     def update
-        post = Post.find(params[:id])
-          if post.update post_params
-              render json: post
+        @post = Post.find(params[:id])
+          if  @post.update post_params
+              render :show
           else
-              render json: post.errors
+              render json: @post.errors
           end
     end
     def show
-        post = Post.find(params[:id])
-        render json: post
+        @post = Post.find(params[:id])
     end
+
     def new
         post = Post.new(params[:id])
         render json: post

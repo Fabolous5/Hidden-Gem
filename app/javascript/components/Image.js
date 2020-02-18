@@ -30,14 +30,17 @@ class Image extends React.Component {
    }
 
    render () {
+       const {photoStyle} = {"height":"200px", "width": "200px"}
         const{ post } = this.state
         return (
           <React.Fragment>
           <h1>Post: {post.event_name} </h1>
             { post && post.photo_url &&
-              <div>
+              <div >
                 <h2>The photo is: </h2>
-                <img src={post.photo_url} />
+                <div style={photoStyle}>
+                <img  src={post.photo_url} />
+                </div>
               </div>
             }
             <ActiveStorageProvider

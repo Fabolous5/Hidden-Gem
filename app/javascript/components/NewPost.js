@@ -91,7 +91,7 @@ const NewPost = (props) =>{
 */}
                 
                 <Link to="/">
-                    <button onClick={props.handleSubmit} type="submit" className="btn btn-primary">Submit Your Gem!</button>
+                    <button onClick={props.handleSubmit} type="submit" className="btn btn-warning">Submit Your Gem!</button>
                 </Link>
 
             </Form>

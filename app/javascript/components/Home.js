@@ -7,7 +7,9 @@ import {Link} from 'react-router-dom';
 const Home = (props) => {
 
     const taskSize = {"maxHeight": "500px", "overflowY": "scroll"}
-    const image = {"background-image": "url('https://upload.wikimedia.org/wikipedia/commons/1/15/Sandiego_skyline_at_night.JPG')", "image": "no-repeat", "height": "600px"}
+
+    const image = {"backgroundImage": "url('https://upload.wikimedia.org/wikipedia/commons/1/15/Sandiego_skyline_at_night.JPG')", "image": "no-repeat" , "height": "600px"}
+
     return(
         <div>
             {props.user.signed_in &&

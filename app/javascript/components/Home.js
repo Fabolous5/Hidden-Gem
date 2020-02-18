@@ -28,7 +28,6 @@ const Home = (props) => {
 
                             <div style={{width: "600px", height: "600px"}} className="card border-warning mb-3" >
 
-
                                 <div className="card-header">
                                     <h1>{post.event_name}</h1>
                                 </div>
@@ -37,7 +36,7 @@ const Home = (props) => {
                                 <div className="card-body">
                                     <p className="card-text">{post.event_description}</p>
                                     <h6 className="card-title">{post.address}</h6>
-                                    
+
                                         <h6 className="card-title">Start Time: {post.start_time}</h6>
 
                                     <h6 className="card-title">End Time: {post.end_time}</h6>
@@ -94,7 +93,7 @@ const Home = (props) => {
 
 
 
-                           
+
                                         <SingleGem />
 
                                         <br />

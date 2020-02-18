@@ -94,6 +94,7 @@ class EditPost extends React.Component {
                         <Link to="/">
                             <button onClick={this.delete} className="btn btn-primary">Delete this Gem 😭</button>
                         </Link>
+                    <Link to={`/image/${this.state.form.id}`}> Add your Photo</Link>
                     </div>
                 }
                 {!this.state.form &&

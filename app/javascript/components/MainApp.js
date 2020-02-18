@@ -3,7 +3,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import { NavItem, NavLink as Link, Nav } from 'reactstrap'
 
-import GemAll from './GemAll'
+
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import Home from './Home'
 import NewPost from './NewPost'
@@ -184,7 +184,7 @@ handleDelete = (post) => {
                {!signed_in &&
                  <div>
                  <NavItem className="active">
-                   <Link className="navbar-brand btn btn-outline-secondary" href="/all">All Gems</Link>
+
 
                    <Link className="navbar-brand btn btn-outline-secondary" href={sign_in_route}>Sign In</Link>
 

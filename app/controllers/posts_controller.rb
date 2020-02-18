@@ -4,9 +4,12 @@ class PostsController < ApplicationController
         render json: posts
 
     end
-    # def user_index
-    #     @posts = current_user.posts
-    # end
+
+    def user_index
+        posts = current_user.posts.where(id: params[:id])
+        render json: posts
+    end
+
     def post_params
         params.require(:post).permit(:user_id, :event_name, :address, :category, :event_description, :start_time, :end_time, :date, :photo)
     end

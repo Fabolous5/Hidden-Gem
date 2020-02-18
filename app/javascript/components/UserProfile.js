@@ -44,8 +44,10 @@ const UserProfile = (props) => {
             return (
                 <div>
                 {post.user_id == props.user.current_user_id &&
+
                 <div  role="toolbar">
-                    <div style={{width: "600px", height: "600px"}} className="card border-primary mb-3" >
+                    <div style={{width: "600px", height: "600px"}} className="card border-warning mb-3" >
+
 
                         <div className="card-header"><h1>{post.event_name}</h1></div>
                         <div key={index}>
@@ -56,7 +58,7 @@ const UserProfile = (props) => {
                             <h6 className="card-title">Start Time: {post.start_time}</h6>
                             <h6 className="card-title">End Time: {post.end_time}</h6>
                             <h6 className="card-title">Date: {post.date}</h6>
-                            <Link to={`/EditPost/${post.id}`}> Edit Gem</Link>
+                            <Link className="text-warning" to={`/EditPost/${post.id}`}> Edit Gem</Link>
                                 {/*<Link to={`/Show/${post.id}`}>Click to see more details</Link>*/}
                                 <hr />
                                 <img style={{width: "560px", height: "400px"}} src={post.photo_url} />

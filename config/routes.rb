@@ -24,6 +24,8 @@ Rails.application.routes.draw do
     # routes for posts
     # shows all posts
     get '/posts' => 'posts#index'
+    # shows all posts for logged in user
+    get '/posts/users/:id' => 'posts#user_index'
     # returns an HTML form for creating a new user
     get '/posts/new' => 'posts#new'
     # creates a new user

@@ -144,6 +144,7 @@ handleDelete = (post) => {
 
   render () {
     const {
+        current_user_id,
       signed_in,
       sign_in_route,
       sign_up,
@@ -168,13 +169,13 @@ handleDelete = (post) => {
 
                {signed_in &&
                  <div>
-                 <NavItem>
+                 <NavItem className="active">
 
-                    <Link className=" navbar-brand btn btn-outline-primary" href="/NewPost">Create New Gem</Link>
+                    <Link className="navbar-brand btn btn-outline-secondary" href="/NewPost">Create New Gem</Link>
 
-                    <Link className=" navbar-brand btn btn-outline-primary" href="/UserProfile">See Your Gems</Link>
+                    <Link className=" navbar-brand btn btn-outline-secondary" href="/UserProfile">See Your Gems</Link>
 
-                   <Link className=" navbar-brand btn btn-outline-primary" href={sign_out_route}>Sign Out</Link>
+                   <Link className=" navbar-brand btn btn-outline-secondary" href={sign_out_route}>Sign Out</Link>
 
                 </NavItem>
 
@@ -205,7 +206,7 @@ handleDelete = (post) => {
 
                    <Route exact path="/posts/:id" render={(props) => <SingleGem {...props} posts={this.state.posts} form={this.state.form} getPost={this.getThatPost} />}/>
 
-                   <Route exact path="/UserProfile" render={(props) => <UserProfile user={this.props} /> } />
+                   <Route exact path="/UserProfile" render={(props) => <UserProfile {...props} user={this.props} posts={this.state.posts.filter(v => v.user_id === this.props.current_user_id)} getInitialState={this.getInitialState} handleEdit={this.handleEdit}   /> } />
 
                    <Route exact path="/EditUserProfile" render={(props) => <EditUserProfile user={this.props} posts={this.state.posts} /> } />
 

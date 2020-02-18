@@ -9,6 +9,7 @@ const UserProfile = (props) => {
     //
     const {userPost} = props.posts.map
 
+
     // const {userPost} = props.posts.filter(post => {
     //     post.user_id === 2})
     // console.log(userPost);
@@ -43,12 +44,13 @@ const UserProfile = (props) => {
             return (
                 <div>
                 {post.user_id == props.user.current_user_id &&
-                <div  key={index} role="toolbar">
-                    <div style={{width: "600px", height: "700px"}} className="card border-warning mb-3" >
-                    { post.photo_url &&
-                        <img src={post.photo_url} className="card-img-top"/>
-                    }
+
+                <div  role="toolbar">
+                    <div style={{width: "600px", height: "600px"}} className="card border-warning mb-3" >
+
+
                         <div className="card-header"><h1>{post.event_name}</h1></div>
+                        <div key={index}>
                         <div style={taskSize}>
                         <div className="card-body">
                             <p className="card-text">{post.event_description}</p>
@@ -59,9 +61,13 @@ const UserProfile = (props) => {
                             <Link className="text-warning" to={`/EditPost/${post.id}`}> Edit Gem</Link>
                                 {/*<Link to={`/Show/${post.id}`}>Click to see more details</Link>*/}
                                 <hr />
+                                <img style={{width: "560px", height: "400px"}} src={post.photo_url} />
+                                <hr />
+                                <br />
                                 <br />
                                 <SingleGem />
 
+                        </div>
                         </div>
                     </div>
                     </div>

@@ -1,6 +1,7 @@
 import React from "react"
 import { Button, Form, FormGroup, Label, Input, FormText, Jumbotron } from 'reactstrap';
 import MainApp from "./MainApp"
+import Image from "./Image"
 import { Link } from 'react-router-dom';
 
 
@@ -88,6 +89,7 @@ const NewPost = (props) =>{
 
                 </fieldset>
 */}
+                
                 <Link to="/">
                     <button onClick={props.handleSubmit} type="submit" className="btn btn-primary">Submit Your Gem!</button>
                 </Link>

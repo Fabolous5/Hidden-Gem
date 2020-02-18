@@ -19,7 +19,7 @@ const UserProfile = (props) => {
             <hr />
 
             <div className="btn-toolbar d-flex justify-content-around" role="toolbar">
-                {/*<div style={{width: "300px"}} className="d-flex justify-content-around card text-white bg-primary mb-3" >
+                {/*<div style={{width: "300px"}} className="d-flex justify-content-around card text-white bg-warning mb-3" >
                     <img style={{width: "200px"}} src="https://p0.pikrepo.com/preview/699/108/silhouette-of-person-in-white-background.jpg" alt="Card image" />
                     <div className="card-header">name: {props.user.first_name} {props.user.last_name}</div>
                     <div className="card-body">
@@ -27,7 +27,7 @@ const UserProfile = (props) => {
                         <p className="card-text">email: {props.user.email}</p>
                     </div>
                 </div>*/}
-            {/*<div style={{width: "300px"}} className="d-flex justify-content-around card text-white bg-primary mb-3">
+            {/*<div style={{width: "300px"}} className="d-flex justify-content-around card text-white bg-warning mb-3">
                 <div className="card-header">
                      <h1 className="card-title">Edit Profile</h1>
                 </div>
@@ -44,7 +44,7 @@ const UserProfile = (props) => {
                 <div>
                 {post.user_id == props.user.current_user_id &&
                 <div  key={index} role="toolbar">
-                    <div style={{width: "600px", height: "700px"}} className="card border-primary mb-3" >
+                    <div style={{width: "600px", height: "700px"}} className="card border-warning mb-3" >
                     { post.photo_url &&
                         <img src={post.photo_url} className="card-img-top"/>
                     }
@@ -56,7 +56,7 @@ const UserProfile = (props) => {
                             <h6 className="card-title">Start Time: {post.start_time}</h6>
                             <h6 className="card-title">End Time: {post.end_time}</h6>
                             <h6 className="card-title">Date: {post.date}</h6>
-                            <Link to={`/EditPost/${post.id}`}> Edit Gem</Link>
+                            <Link className="text-warning" to={`/EditPost/${post.id}`}> Edit Gem</Link>
                                 {/*<Link to={`/Show/${post.id}`}>Click to see more details</Link>*/}
                                 <hr />
                                 <br />

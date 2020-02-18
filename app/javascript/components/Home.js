@@ -23,7 +23,7 @@ const Home = (props) => {
                 {props.posts && props.posts.map((post, index)=>{
                     return (
                         <div   role="toolbar">
-                            <div style={{width: "600px", height: "700px"}} className="card border-primary mb-3" >
+                            <div style={{width: "600px", height: "700px"}} className="card border-warning mb-3" >
                             { post.photo_url &&
                             <img src={post.photo_url} className="card-img-top"/>
                         }
@@ -73,7 +73,7 @@ const Home = (props) => {
             {props.posts && props.posts.map((post, index)=>{
                 return (
                     <div  key={index} role="toolbar">
-                        <div style={{width: "700px", height: "600px"}} className="card border-primary mb-3" >
+                        <div style={{width: "700px", height: "600px"}} className="card border-warning mb-3" >
 
                             <div className="card-header">
                                 <h1>{post.event_name}</h1>

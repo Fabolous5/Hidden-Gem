@@ -26,9 +26,7 @@ const Home = (props) => {
                     return (
                         <div   role="toolbar">
                             <div style={{width: "600px", height: "700px"}} className="card border-primary mb-3" >
-                            { post.photo_url &&
-                            <img src={post.photo_url} className="card-img-top"/>
-                        }
+
                                 <div className="card-header">
                                     <h1>{post.event_name}</h1>
                                 </div>
@@ -44,6 +42,7 @@ const Home = (props) => {
                                     {/*<Link to={`/EditPost/${post.id}`}> Edit Gem</Link>
                                         <Link to={`/Show/${post.id}`}>Click to see more details</Link>*/}
                                         <hr />
+                                        <img src = {post.photo_url}/>
                                         <br />
                                         <SingleGem />
 

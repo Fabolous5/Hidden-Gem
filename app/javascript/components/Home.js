@@ -24,44 +24,39 @@ const Home = (props) => {
                 <div  className="btn-toolbar d-flex justify-content-around">
                 {props.posts && props.posts.map((post, index)=>{
                     return (
+                            <div key={index}  role="toolbar">
+                                    <div style={{width: "600px", height: "600px"}} className="card border-warning mb-3" >
 
-                        <div key={index}  role="toolbar">
+                                        <div className="card-header">
+                                            <h1>{post.event_name}</h1>
+                                        </div>
+                                            <div >
+                                                <div style={taskSize}>
+                                                    <div className="card-body">
+                                                        <p className="card-text">{post.event_description}</p>
+                                                        <h6 className="card-title">{post.address}</h6>
 
-                        <div   role="toolbar">
+                                                            <h6 className="card-title">Start Time: {post.start_time}</h6>
 
+                                                        <h6 className="card-title">End Time: {post.end_time}</h6>
+                                                        <h6 className="card-title">Date: {post.date}</h6>
 
-                            <div style={{width: "600px", height: "600px"}} className="card border-warning mb-3" >
+                                                        {/*<Link to={`/EditPost/${post.id}`}> Edit Gem</Link>
+                                                            <Link to={`/Show/${post.id}`}>Click to see more details</Link>*/}
+                                                            <hr />
 
-                                <div className="card-header">
-                                    <h1>{post.event_name}</h1>
-                                </div>
-                                <div >
-                                <div style={taskSize}>
-                                <div className="card-body">
-                                    <p className="card-text">{post.event_description}</p>
-                                    <h6 className="card-title">{post.address}</h6>
+                                                            <img style={{width: "560px", height: "400px"}} src={post.photo_url}/>
 
-                                        <h6 className="card-title">Start Time: {post.start_time}</h6>
+                                                            <br />
+                                                            <hr />
+                                                            <br />
+                                                            <SingleGem />
 
-                                    <h6 className="card-title">End Time: {post.end_time}</h6>
-                                    <h6 className="card-title">Date: {post.date}</h6>
-
-                                    {/*<Link to={`/EditPost/${post.id}`}> Edit Gem</Link>
-                                        <Link to={`/Show/${post.id}`}>Click to see more details</Link>*/}
-                                        <hr />
-
-                                            <img style={{width: "560px", height: "400px"}} src={post.photo_url}/>
-
-                                        <br />
-                                        <hr />
-                                        <br />
-                                        <SingleGem />
-
-                                </div>
-                                </div>
-                                </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                    </div>
                             </div>
-                        </div>
                         )
                     })}
                 </div>
@@ -72,6 +67,7 @@ const Home = (props) => {
                 <div  className="jumbotron" style={image}>
                     <h1 className="display-3 text text-white">Welcome to Hidden Gems!</h1>
                     <p className="lead text-white">Discover low-key events in the San Diego area.</p>
+                    <hr className="my-4 "/>
                     <p className= "text-white" >For locals. By locals.</p>
                     <p className="lead">
                     <a className="btn btn-warning btn-lg" href="/users/sign_up" role="button">Sign up now!</a>
@@ -86,25 +82,21 @@ const Home = (props) => {
                         <div   role="toolbar">
                             <div style={{width: "600px", height: "600px"}} className="card border-warning mb-3" >
 
-
                                 <div className="card-header">
                                     <h1>{post.event_name}</h1>
                                 </div>
-                                <div key={index}>
-                                <div style={taskSize}>
-                                <div className="card-body">
+                                    <div key={index}>
+                                        <div style={taskSize}>
+                                            <div className="card-body">
 
+                                                    <SingleGem />
 
+                                                    <br />
+                                                    <a className="btn btn-warning btn-lg" href="/users/sign_in">Sign in to see more</a>
 
-
-                                        <SingleGem />
-
-                                        <br />
-                                        <a className="btn btn-warning btn-lg" href="/users/sign_in">Sign in to see more</a>
-
-                                </div>
-                                </div>
-                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                             </div>
                         </div>
                         )

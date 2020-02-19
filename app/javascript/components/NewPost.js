@@ -17,7 +17,7 @@ const NewPost = (props) =>{
 
                 <FormGroup className="form-group">
                     <Label className="col-form-label col-form-label-lg" for="inputLarge" htmlFor="event name">Enter Title</Label>
-                    <textarea value={props.posts.event_name} className="form-control form-control-lg" id="event_name" name="event_name"  onChange={props.handleChange}></textarea>
+                    <Input value={props.posts.event_name} className="form-control form-control-lg" id="event_name" name="event_name"  onChange={props.handleChange} />
                 </FormGroup>
 
 
@@ -90,12 +90,12 @@ const NewPost = (props) =>{
                 </fieldset>
 */}
 
-                
+
                 <Link to="/">
                     <button onClick={props.handleSubmit} type="submit" className="btn btn-warning">Submit Your Gem!</button>
 
                 </Link>
-          
+
 
             </Form>
 

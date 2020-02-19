@@ -87,14 +87,18 @@ class EditPost extends React.Component {
                                 <Label className="col-form-label" for="inputDefault" htmlFor="date">Date</Label>
                                 <Input defaultValue={this.state.form.date} type="text" className="form-control" placeholder="MM/DD/YYYY"  id="date" name="date"  onChange={this.handleChange}/>
                             </FormGroup>
+                            <Link className="text-warning" to={`/image/${this.state.form.id}`}> Add your Photo</Link>
+                            <br />
                             <Link to="/" >
-                                <button type="submit" className="btn btn-primary" onClick={this.handleEdit}>Submit Your Updates!</button></Link>
+                                <button type="submit" className="btn btn-warning" onClick={this.handleEdit}>Submit Your Updates!</button></Link>
 
                         </Form>
+
                         <Link to="/UserProfile">
                             <button onClick={this.delete} className="btn btn-primary">Delete this Gem 😭</button>
                         </Link>
                     <Link to={`/image/${this.state.form.id}`}> Edit Your Photo</Link>
+
                     </div>
                 }
                 {!this.state.form &&

@@ -24,7 +24,12 @@ const Home = (props) => {
                 <div  className="btn-toolbar d-flex justify-content-around">
                 {props.posts && props.posts.map((post, index)=>{
                     return (
+
                         <div key={index}  role="toolbar">
+
+                        <div   role="toolbar">
+
+
                             <div style={{width: "600px", height: "600px"}} className="card border-warning mb-3" >
 
                                 <div className="card-header">
@@ -67,7 +72,6 @@ const Home = (props) => {
                 <div  className="jumbotron" style={image}>
                     <h1 className="display-3 text text-white">Welcome to Hidden Gems!</h1>
                     <p className="lead text-white">Discover low-key events in the San Diego area.</p>
-                    <hr className="my-4 "/>
                     <p className= "text-white" >For locals. By locals.</p>
                     <p className="lead">
                     <a className="btn btn-warning btn-lg" href="/users/sign_up" role="button">Sign up now!</a>
@@ -82,13 +86,13 @@ const Home = (props) => {
                         <div   role="toolbar">
                             <div style={{width: "600px", height: "600px"}} className="card border-warning mb-3" >
 
+
                                 <div className="card-header">
                                     <h1>{post.event_name}</h1>
                                 </div>
                                 <div key={index}>
                                 <div style={taskSize}>
                                 <div className="card-body">
-
 
 
 

@@ -37,7 +37,7 @@ class SingleGem extends React.Component{
                         center={this.state.mapCenter}
                         zoom={this.state.zoom}
                         maxZoom={maxZoom}
-                        style={{width: '500px',height: '400px'}}>
+                        style={{width: '560px',height: '400px'}}>
 
                         <TileLayer
                           attribution={attribution}

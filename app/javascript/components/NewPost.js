@@ -89,12 +89,16 @@ const NewPost = (props) =>{
 
                 </fieldset>
 */}
+
                 
                 <Link to="/">
                     <button onClick={props.handleSubmit} type="submit" className="btn btn-warning">Submit Your Gem!</button>
+
                 </Link>
+          
 
             </Form>
+
          </React.Fragment>
      )
 }

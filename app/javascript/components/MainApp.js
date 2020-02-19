@@ -4,6 +4,7 @@ import PropTypes from "prop-types"
 import { NavItem, NavLink as Link, Nav } from 'reactstrap'
 
 
+
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import Home from './Home'
 import NewPost from './NewPost'
@@ -45,7 +46,8 @@ class MainApp extends React.Component {
 
 
 componentDidMount(){
-    this.getPost()
+    this.getPost(),
+    document.body.style.background = "#ffffff"
 }
 
 //handleSubmit handles the submit of our new post. It is changing and updating the state of posts
@@ -143,6 +145,8 @@ handleDelete = (post) => {
 }
 
   render () {
+
+
     const {
         current_user_id,
       signed_in,
@@ -158,7 +162,8 @@ handleDelete = (post) => {
     let {id, event_name, address, category, event_description, start_time, end_time, date} = this.state.form
 
     return (
-        <Router>
+        <Router >
+
           <React.Fragment>
             <Nav className="nav nav-tabs navbar navbar-expand-lg navbar-dark bg-dark">
             <NavItem className="active">
@@ -168,7 +173,7 @@ handleDelete = (post) => {
 
 
                {signed_in &&
-                 <div>
+                 <div >
                  <NavItem className="active">
 
                     <Link className="navbar-brand btn btn-outline-secondary" href="/NewPost">Create New Gem</Link>

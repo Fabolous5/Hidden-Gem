@@ -91,10 +91,10 @@ class EditPost extends React.Component {
                                 <button type="submit" className="btn btn-primary" onClick={this.handleEdit}>Submit Your Updates!</button></Link>
 
                         </Form>
-                        <Link to="/">
+                        <Link to="/UserProfile">
                             <button onClick={this.delete} className="btn btn-primary">Delete this Gem 😭</button>
                         </Link>
-                    <Link to={`/image/${this.state.form.id}`}> Add your Photo</Link>
+                    <Link to={`/image/${this.state.form.id}`}> Edit Your Photo</Link>
                     </div>
                 }
                 {!this.state.form &&

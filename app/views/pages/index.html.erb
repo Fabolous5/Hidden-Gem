@@ -6,8 +6,8 @@
         sign_out_route: destroy_user_session_path,
 
 
-        last_name: current_user.last_name,
-        first_name: current_user.first_name,
+        last_name: current_user.last_name.capitalize(),
+        first_name: current_user.first_name.capitalize(),
         postal_code: current_user.postal_code,
         email: current_user.email,
         current_user_id: current_user.id

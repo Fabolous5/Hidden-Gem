@@ -8,7 +8,7 @@ const Home = (props) => {
     const imageStyle = {"maxHeight": "400px", "maxWidth": "400px"}
     const taskSize = {"maxHeight": "500px", "overflowY": "scroll"}
 
-    const image = {"backgroundImage": "url('https://upload.wikimedia.org/wikipedia/commons/1/15/Sandiego_skyline_at_night.JPG')", "image": "no-repeat" , "height": "600px"}
+    const image = {"backgroundImage": "url('https://upload.wikimedia.org/wikipedia/commons/1/15/Sandiego_skyline_at_night.JPG')", "height": "600px"}
 
     return(
         <div>
@@ -24,18 +24,18 @@ const Home = (props) => {
                 <div  className="btn-toolbar d-flex justify-content-around">
                 {props.posts && props.posts.map((post, index)=>{
                     return (
-                        <div   role="toolbar">
-                            <div style={{width: "600px", height: "600px"}} className="card border-primary mb-3" >
+                        <div key={index}  role="toolbar">
+                            <div style={{width: "600px", height: "600px"}} className="card border-warning mb-3" >
 
                                 <div className="card-header">
                                     <h1>{post.event_name}</h1>
                                 </div>
-                                <div key={index}>
+                                <div >
                                 <div style={taskSize}>
                                 <div className="card-body">
                                     <p className="card-text">{post.event_description}</p>
                                     <h6 className="card-title">{post.address}</h6>
-                                    
+
                                         <h6 className="card-title">Start Time: {post.start_time}</h6>
 
                                     <h6 className="card-title">End Time: {post.end_time}</h6>
@@ -80,7 +80,7 @@ const Home = (props) => {
                 {props.posts && props.posts.map((post, index)=>{
                     return (
                         <div   role="toolbar">
-                            <div style={{width: "600px", height: "600px"}} className="card border-primary mb-3" >
+                            <div style={{width: "600px", height: "600px"}} className="card border-warning mb-3" >
 
                                 <div className="card-header">
                                     <h1>{post.event_name}</h1>

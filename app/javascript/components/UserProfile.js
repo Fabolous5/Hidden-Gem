@@ -20,7 +20,7 @@ const UserProfile = (props) => {
             <hr />
 
             <div className="btn-toolbar d-flex justify-content-around" role="toolbar">
-                {/*<div style={{width: "300px"}} className="d-flex justify-content-around card text-white bg-primary mb-3" >
+                {/*<div style={{width: "300px"}} className="d-flex justify-content-around card text-white bg-warning mb-3" >
                     <img style={{width: "200px"}} src="https://p0.pikrepo.com/preview/699/108/silhouette-of-person-in-white-background.jpg" alt="Card image" />
                     <div className="card-header">name: {props.user.first_name} {props.user.last_name}</div>
                     <div className="card-body">
@@ -28,7 +28,7 @@ const UserProfile = (props) => {
                         <p className="card-text">email: {props.user.email}</p>
                     </div>
                 </div>*/}
-            {/*<div style={{width: "300px"}} className="d-flex justify-content-around card text-white bg-primary mb-3">
+            {/*<div style={{width: "300px"}} className="d-flex justify-content-around card text-white bg-warning mb-3">
                 <div className="card-header">
                      <h1 className="card-title">Edit Profile</h1>
                 </div>
@@ -42,13 +42,13 @@ const UserProfile = (props) => {
         {props.posts.map((post, index) =>{
 
             return (
-                <div>
+                <div key={index}>
                 {post.user_id == props.user.current_user_id &&
                 <div  role="toolbar">
-                    <div style={{width: "600px", height: "600px"}} className="card border-primary mb-3" >
+                    <div style={{width: "600px", height: "600px"}} className="card border-warning mb-3" >
 
                         <div className="card-header"><h1>{post.event_name}</h1></div>
-                        <div key={index}>
+                        <div >
                         <div style={taskSize}>
                         <div className="card-body">
                             <p className="card-text">{post.event_description}</p>

@@ -36,7 +36,7 @@ const Home = (props) => {
                                                         <p className="card-text">{post.event_description}</p>
                                                         <h6 className="card-title">{post.address}</h6>
 
-                                                            <h6 className="card-title">Start Time: {post.start_time}</h6>
+                                                        <h6 className="card-title">Start Time: {post.start_time}</h6>
 
                                                         <h6 className="card-title">End Time: {post.end_time}</h6>
                                                         <h6 className="card-title">Date: {post.date}</h6>
@@ -89,7 +89,8 @@ const Home = (props) => {
                                         <div style={taskSize}>
                                             <div className="card-body">
 
-                                                    <SingleGem />
+                                            <img style={{width: "560px", height: "400px"}} src={post.photo_url}/>
+
 
                                                     <br />
                                                     <a className="btn btn-warning btn-lg" href="/users/sign_in">Sign in to see more</a>

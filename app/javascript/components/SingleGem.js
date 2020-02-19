@@ -16,45 +16,7 @@ class SingleGem extends React.Component{
         }
     }
 
-    // componentDidMount(){
-    //     this.setForm()
-    // }
-    //
-    //
-    // setForm = () => {
-    //     const { form } = this.state
-    //     const { posts } = this.props
-    //     const post = posts.find((p)=> p.id === parseInt(form.id))
-    //     this.setState({posts: posts})
-    //     console.log(this.state.posts);
-    // }
-
-    //  componentDidMount() {
-    //     // this.props.getPost().then(response => {
-    //     //     console.log(this.props.posts);
-    //     //
-    //     // })
-    //     this.props.getPost();
-    //     console.log(this.props.getPost);
-    //     console.log(this.props.posts);
-    // }
-
     render() {
-        // const posts = this.state
-        // const postId = this.state.id
-        // const post = posts.find((p)=> p.id == postId)
-        // const { id } = this.props.match.params
-        // console.log("here we are now again", id);
-        //
-        // const { post } = this.props.posts;
-        // console.log("um", this.props.posts);
-        // console.log("over here", this.state.form)
-        // console.log("here we go", id.posts);
-        // const practice = this.props.posts[0];
-        // console.log("here we are now", this.props.posts[0]);
-        // const practice = this.props.posts[0];
-        // console.log("here we are now again", practice);
-
 
         const accessToken = 'pk.eyJ1IjoiamxvcGV6MDEwOCIsImEiOiJjazZjam9oN20wYzRwM21tbGdtcjVqM2hnIn0.Xrqyk3Y6h9sqaEssl3qwHw'
 
@@ -75,7 +37,7 @@ class SingleGem extends React.Component{
                         center={this.state.mapCenter}
                         zoom={this.state.zoom}
                         maxZoom={maxZoom}
-                        style={{width: '100%',height: '400px'}}>
+                        style={{width: '500px',height: '400px'}}>
 
                         <TileLayer
                           attribution={attribution}
